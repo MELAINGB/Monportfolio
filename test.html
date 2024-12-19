@@ -1,0 +1,175 @@
+<!--<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Éléments Dynamiques</title>
+    <style>body, html{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+  }
+  
+  .dynamic-element {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease-out forwards;
+      font-size: 24px;
+      margin: 10px;
+      animation-delay: 1s; /* Delay of 1 second for appearance */
+  }
+  
+  .dynamic-element:nth-child(2) {
+      animation-delay: 12s; /* Different delay for the second element */
+  }
+  
+  @keyframes fadeIn {
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  
+  </style>
+</head>
+<body>
+    <div class="dynamic-element">Je suis un div dynamique !</div>
+    <p class="dynamic-element">Je suis un paragraphe dynamique !</p>
+    
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Éléments Dynamiques</title>
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.section {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dynamic-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    font-size: 24px;
+    margin: 10px;
+}
+
+.dynamic-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="dynamic-element div1">Je suis un div dynamique 1 !</div>
+        <div class="dynamic-element div2">Je suis un div dynamique 2 !</div>
+        <p class="dynamic-element p1">Je suis un paragraphe dynamique 1 !</p>
+        <p class="dynamic-element p2">Je suis un paragraphe dynamique 2 !</p>
+        <div class="other-class dynamic-element">Je suis un autre div dynamique !</div>
+    </div>
+    <script>document.addEventListener("DOMContentLoaded", function() {
+        const elements = document.querySelectorAll('.dynamic-element');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+    
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+    </script>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Services</title>
+   <style>body {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #0f3460;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    text-align: center;
+}
+
+.container h1 {
+    color: #00aaff;
+    margin-bottom: 10px;
+}
+
+.container p, .container h2 {
+    margin-bottom: 20px;
+}
+
+.container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.container ul li {
+    background: url('checkmark.png') no-repeat left center;
+    background-size: 20px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Web Design</h1>
+        <p>With 07 years of experience as a professional web designer, I have acquired the skills and knowledge necessary to make your project a success!</p>
+        <h2>What I Provide</h2>
+        <ul>
+            <li>Design & build custom websites</li>
+            <li>Responsive Website Design</li>
+            <li>Search Engine Optimization (SEO)</li>
+            <li>Website Hosting</li>
+            <li>Website Maintenance and Support</li>
+        </ul>
+    </div>
+</body>
+</html>
