@@ -6,7 +6,7 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: "Poppins";
+    font-family:"Times New Roman', Times, serif", "Poppins";
 }
 html{
     font-size: 60%;
@@ -564,7 +564,7 @@ ul li {
 }
 .contact h2{
     margin-bottom: 3rem;
-    columns: var(--text-color);
+
 }
 .contact form{
     display: flex;
@@ -640,7 +640,6 @@ footer .copyright{
     border-bottom: 5px solid var(--main-color);
     
 }
-
 .btn-fermer {
     position: absolute;
     top: 10px;
@@ -648,7 +647,6 @@ footer .copyright{
     font-size: 24px;
     cursor: pointer;
 }
-
 h1 {
     color:var(--main-color);
 }
@@ -671,6 +669,7 @@ h1 {
     #menu-icon{
         display: block;
     }
+    
     .navbar{
         position: absolute;
         top: 100%;
@@ -682,6 +681,14 @@ h1 {
         border-bottom: 2px solid var(--main-color);
         border-bottom-left-radius: 2rem;
         display: none;
+    }
+    header{
+        justify-content: space-between;
+        width: 60%;
+      
+    }
+    .heading{
+        font-size: 4rem;
     }
     .navbar ul {
         display: block;
@@ -721,7 +728,12 @@ h1 {
     .contact form {
         flex-direction: column;
     }
-    .portfolio .p-container{
+    .portfolio .p-container,
+    .projet .p-container{
         grid-template-columns: 1fr;
     }
+    .timeline-content p{
+        font-size: 1.5rem;
+    }
+   
 }
