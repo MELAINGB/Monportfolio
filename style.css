@@ -6,7 +6,7 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family:"Times New Roman', Times, serif", "Poppins";
+    font-family: 'Times New Roman', Times, sans-serif;
 }
 html{
     font-size: 60%;
@@ -27,6 +27,7 @@ html{
 body{
     background-color: var(--bg-color);
     color: var(--text-color);
+    font-family: 'Times New Roman', Times, sans-serif;
 }
 header{
     position: fixed;
@@ -100,8 +101,8 @@ section{
 }
 h3{
     font-size: 2.5rem;
-    padding: 0 0 2% 5% ;
-    color: #fff;
+    padding:  3% 0 2% 0;
+    color: var(--text-color);
 }
 .home{
     display: flex;
@@ -255,6 +256,9 @@ h3{
 }
 
 /* PROJET PRO */
+.projet{
+    background-color: var(--bg-color);
+}
 .projet_pro{
     font-size: 2rem;
 }
@@ -380,7 +384,7 @@ ul li {
     font-weight:600 ;
     line-height: 1.7;
 }
-.formation{
+.Formation{
     padding: 100px 15px;
     background-color: var(--second-bg-color);
 }
@@ -507,8 +511,8 @@ ul li {
     font-size: 2rem;
 }
 .p-layer p{
-    font-size: 1.6rem;
-    margin: 3rem 0 1rem;
+    font-size: 1.5rem;
+    margin: 3rem 0 1rem;;
 }
 .p-layer a{
     display: inline-flex;
@@ -527,39 +531,57 @@ ul li {
 .Competences{
     background-color: var(--second-bg-color);
 }
+.transit{
+    font-size: 2rem;
+    padding: 0 0 0 5%;
+    color: lightslategray;
+}
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+}
 
-.compt-container{
-    
-    width: 100%;
-    display: grid;
-    grid-template-columns:repeat(2 , 1fr) ;
-    grid-column-gap:50px ;
-    grid-row-gap: 20px ;
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
-.compt-container .compt-bar .compt-info{
-    display:flex ;
+
+.carousel-item {
+    min-width: 25%;
+    padding: 10px 15px;
+    text-align: center;
+   
+}
+.carousel-item  {
+    font-size:  1.5rem;
+}
+.carousel img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: solid 1px #0f3460;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-buttons {
+    display: flex;
     justify-content: space-between;
-    padding: 0 10px;
-    font-size: 1.5rem;
+    width: 80%;
+    margin: 10px auto;
 }
-.compt-bar .bar{
-    width: 100%;
-    height: 10px;
-    position: relative;
-    background-color:rgb(217, 239, 228);
-    border-radius: 25px;
-    margin-top: 5%;
+.carousel-button {
+    color: var(--text-color);
+    border: none;
+    padding: 20% 10px 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 3rem;   
 }
-.compt-bar .bar span{
-    
-    height: 100%;
-    position: absolute;
-    background-color: var(--main-color);
-    border-radius: 25px;
-}
-.compt-bar .compt-info .pourcent{
-    font-weight: bold;
-}
+
 
 .contact{
     background-color: var(--second-bg-color);
@@ -685,8 +707,7 @@ h1 {
     }
     header{
         justify-content: space-between;
-        width: 60%;
-      
+        width: 100%;
     }
     .heading{
         font-size: 4rem;
@@ -726,6 +747,14 @@ h1 {
     .moi img{
         width: 52vw;
     }
+    .carousel-button {
+        font-size: 0.1rem;
+        display: none;
+    }
+    .carousel-item {
+        max-width: 50%;
+        padding: 0 12px;
+    }
     .contact form {
         flex-direction: column;
     }
@@ -736,5 +765,6 @@ h1 {
     .timeline-content p{
         font-size: 1.5rem;
     }
+    
    
 }

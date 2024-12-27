@@ -36,3 +36,36 @@ function afficherPopup(id) {
 window.onload = function() {
     // Code initial pour afficher les pop-ups au chargement de la page est supprimé
 }
+
+
+
+function setupCarousel(trackId, prevButtonId, nextButtonId) {
+    const track = document.getElementById(trackId);
+    const items = track.querySelectorAll('.carousel-item');
+    const prevButton = document.getElementById(prevButtonId);
+    const nextButton = document.getElementById(nextButtonId);
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const itemWidth = items[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+    }
+
+    nextButton.addEventListener('click', showNext);
+    prevButton.addEventListener('click', showPrev);
+
+    setInterval(showNext, 5000);
+}
+
+setupCarousel('carouselTrack1', 'prevButton1', 'nextButton1');
+setupCarousel('carouselTrack2', 'prevButton2', 'nextButton2');
