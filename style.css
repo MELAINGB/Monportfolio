@@ -13,16 +13,18 @@ html{
     overflow-x: hidden;
 }
 :root{
-    --bg-color: #050125;
-    --second-bg-color: #08041e;
-    --text-color:#fff;
-    --main-color:rgb(107, 92, 234);
-}
-.dark-mode{
     --bg-color: #fff;
     --second-bg-color: rgb(213, 213, 237);
     --text-color:black;
     --main-color:rgb(107, 92, 234);
+}
+.dark-mode{
+    --bg-color: #050125;
+    --second-bg-color: #08041e;
+    --text-color:#fff;
+    --main-color:rgb(107, 92, 234);
+
+    
 }
 body{
     background-color: var(--bg-color);
@@ -237,7 +239,7 @@ h3{
     background: var(--main-color);
     border-radius: 3rem;
     font-size: 1.8rem;
-    color: black;
+    color: var(--text-color);
     border: 2px solid transparent ;
     font-weight: 600;
     transition: 0.3s ease-in-out;
@@ -322,6 +324,66 @@ ul li {
     text-align: center;
     font-size: 7rem;
     margin: 5rem 0;
+}
+.cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.card{
+    max-width: 30%;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    background-color: transparent;
+    border: solid 2px var(--main-color);
+}
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px var(--main-color);
+}
+.card img{
+    width: 100%;
+    border-radius: 10px;
+}
+.card h5{
+    font-size: 18px;
+    margin: 5px 0;
+}
+.card h4{
+    font-size: 18px;
+    margin: 5px 0;
+    color: #666;
+}
+
+.card p{
+    font-size: 16px;
+    color: var(--text-color);
+}
+.card_btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.card_btn a{
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-decoration: none;
+    color: var(--text-color);
+    background: var(--main-color);
+    border-radius: 5px;
+    transition: 0.3s;
+   ;
+}
+.card_btn a:hover{
+    background: #666;
 }
 .service{
     background-color: var(--bg-color);
@@ -746,6 +808,21 @@ h1 {
     }
     .moi img{
         width: 52vw;
+    }
+    .card{
+        max-width: 100%;
+    }
+    .cards{
+        flex-direction: column;
+        gap: 5rem;
+    }
+    .card_btn{
+        width: 100%;
+        justify-content: center;
+    }
+    .card_btn a{
+       margin: 2%;
+       
     }
     .carousel-button {
         font-size: 0.1rem;
