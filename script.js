@@ -69,3 +69,30 @@ function setupCarousel(trackId, prevButtonId, nextButtonId) {
 
 setupCarousel('carouselTrack1', 'prevButton1', 'nextButton1');
 setupCarousel('carouselTrack2', 'prevButton2', 'nextButton2');
+
+
+/* En savoir plus*/
+
+function setupFullscreenImage(buttonId, fullscreenImageId, closeButtonId) {
+    const button = document.getElementById(buttonId);
+    const fullscreenImage = document.getElementById(fullscreenImageId);
+    const closeButton = document.getElementById(closeButtonId);
+
+    button.addEventListener('click', () => {
+        fullscreenImage.style.display = 'flex';
+    });
+
+    closeButton.addEventListener('click', () => {
+        fullscreenImage.style.display = 'none';
+    });
+
+    fullscreenImage.addEventListener('click', (event) => {
+        if (event.target === fullscreenImage) {
+            fullscreenImage.style.display = 'none';
+        }
+    });
+}
+
+setupFullscreenImage('showImage1', 'fullscreenImage1', 'closeButton1');
+setupFullscreenImage('showImage2', 'fullscreenImage2', 'closeButton2');
+setupFullscreenImage('showImage3', 'fullscreenImage3', 'closeButton3');
