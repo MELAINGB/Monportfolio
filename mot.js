@@ -1,5 +1,5 @@
 // Textes à afficher
-const texts = ["Bienvenue sur mon Portfolio", "Je suis developpeur web et application"];
+const texts = ["Bienvenue sur mon Portfolio", "Je suis développeur web et application"];
 let index = 0;
 let charIndex = 0; 
 
