@@ -96,3 +96,4 @@ function setupFullscreenImage(buttonId, fullscreenImageId, closeButtonId) {
 setupFullscreenImage('showImage1', 'fullscreenImage1', 'closeButton1');
 setupFullscreenImage('showImage2', 'fullscreenImage2', 'closeButton2');
 setupFullscreenImage('showImage3', 'fullscreenImage3', 'closeButton3');
+setupFullscreenImage('showImage4', 'fullscreenImage4', 'closeButton4');
