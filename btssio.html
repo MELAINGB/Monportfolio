@@ -1,13 +1,169 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melain GBAGUIDI</title>
-    <link rel="icon" href="Photo/logo_mg.jpg" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille Technologique en Bio-informatique</title>
+  <link rel="stylesheet" href="btsstyle.css">
 </head>
-<body style="text-align: center;">
-   <h2 class="heading animate-me">BIENVENUE SUR MA VEILLE TECHNOLOGIQUE </h2>
-    <section style="text-align: center; margin-top: 10%;">Oups ! Pas de donnée pour l'instant <p style="font-size: 2rem; font-weight: bold;">Site en construction...</p></section>
+<body>
+
+  <header >
+    <div class="logo" style="padding: 2%;">
+      <a href="#" >Melain GBAGUIDI</a>
+      <a href="index.html">Portfolio</a>
+    </div>
+ 
+  </header>
+  
+  <!-- Menu de navigation vertical -->
+
+  <div style="padding-top: 5%">
+
+  <nav class="vertical-menu">
+    <div class="logo">Veille Bio-informatique</div>
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher...">
+        <button>🔍</button>
+    </div>
+
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#outils">Outils</a></li>
+      <li>
+        <a href="#evenements" class="submenu-toggle">Événements</a>
+        <ul class="submenu">
+            <li>Salon de foire</li>
+            <li>Menu d'aujourd'hui</li>
+            <li>Je suis</li>
+        </ul>
+      </li>
+      <li><a href="#ressources">Ressources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <script>
+      document.querySelectorAll('.submenu-toggle').forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          const submenu = this.nextElementSibling;
+          submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+    </script>
+    <style>
+      .submenu {
+        display: none;
+        list-style: none;
+        padding-left: 1rem;
+      }
+    </style>
+   
+  </nav>
+
+  <!-- Contenu principal -->
+  <main style="border: solid black 2px; padding: 20px;">
+    <div class="head">
+
+      <h1>Veille Bio-informatique</h1>
+  
+    </div>
+    <!-- Section Accueil -->
+    <section id="accueil">
+      
+      <div class="carousel">
+        <div class="slide">
+          <h2>Découverte majeure en génomique</h2>
+          <p>Un nouvel algorithme révolutionne l'analyse des séquences ADN.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Section Articles -->
+    <section id="articles">
+      <h2>Articles Récents</h2>
+      <div class="article-list">
+        <article>
+          <h3>Titre de l'article 1</h3>
+          <p>Résumé de l'article 1...</p>
+          <a href="#">Lire plus</a>
+        </article>
+        <article>
+          <h3>Titre de l'article 2</h3>
+          <p>Résumé de l'article 2...</p>
+          <a href="#">Lire plus</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section Outils -->
+    <section id="outils">
+        
+      <h2>Outils de Bio-informatique</h2>
+      <div class="tool-list">
+        <div class="tool">
+          <h3>Outil 1</h3>
+          <p>Description de l'outil 1...</p>
+          <a href="#">Visiter le site</a>
+        </div>
+        <div class="tool">
+          <h3>Outil 2</h3>
+          <p>Description de l'outil 2...</p>
+          <a href="#">Visiter le site</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Événements -->
+    <section id="evenements">
+      <h2>Événements à Venir</h2>
+      <div class="event-list">
+        <div class="event">
+          <h3>Conférence ISMB 2023</h3>
+          <p>Date : 15-20 Juillet 2023</p>
+          <a href="#">En savoir plus</a>
+        </div>
+        <div class="event">
+          <h3>Webinaire sur l'IA en génomique</h3>
+          <p>Date : 30 Juillet 2023</p>
+          <a href="#">En savoir plus</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Newsletter -->
+    <section id="newsletter">
+      <h2>Restez Informé</h2>
+      <p>Abonnez-vous à notre newsletter pour recevoir les dernières actualités.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Votre email" required>
+        <button type="submit">S'abonner</button>
+      </form>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+      <p>&copy; 2025 Veille Bio-informatique. Tous droits réservés.</p>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#mentions-legales">Mentions légales</a></li>
+      </ul>
+    </footer>
+  </main>
+
+  <script>// Gestion du formulaire de newsletter
+    document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.querySelector('#newsletter-form input[type="email"]').value;
+      alert(`Merci de vous être abonné avec l'adresse : ${email}`);
+      // Ici, vous pouvez ajouter une logique pour envoyer l'email à un serveur
+    });</script>
+
+  </div>
+  
+
 </body>
 </html>

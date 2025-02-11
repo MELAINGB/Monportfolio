@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 
-
   /* Les pop-up*/
 
   function fermerPopup(id) {
@@ -36,7 +35,6 @@ function afficherPopup(id) {
 window.onload = function() {
     // Code initial pour afficher les pop-ups au chargement de la page est supprimé
 }
-
 
 
 function setupCarousel(trackId, prevButtonId, nextButtonId) {

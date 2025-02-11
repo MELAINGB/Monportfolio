@@ -80,18 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elements.forEach(element => observer.observe(element));
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
+    // Dynamic mot pour titre
 
   const serviceCardWithModals = document.querySelectorAll(".service-container .card-with-modal");
 

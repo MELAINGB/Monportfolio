@@ -173,7 +173,7 @@
     </div>
 </body>
 </html>
--->
+
 <body>
     <button id="showImage1">Afficher Image 1</button>
     <button id="showImage2">Afficher Image 2</button>
@@ -262,4 +262,127 @@
     setupFullscreenImage('showImage1', 'fullscreenImage1', 'closeButton1');
     setupFullscreenImage('showImage2', 'fullscreenImage2', 'closeButton2');
     setupFullscreenImage('showImage3', 'fullscreenImage3', 'closeButton3');
-</script>
+</script>--><!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mon Site Web</title>
+        <style>
+         body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    padding: 2em;
+}
+
+#content {
+    flex: 3;
+}
+
+aside {
+    flex: 1;
+    background-color: #ddd;
+    padding: 1em;
+    margin-left: 1em;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+   
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>Bienvenue sur mon site web</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <main>
+                <section id="content">
+                    <p>Ceci est un exemple de contenu de page web.</p>
+                    <button id="myButton">Cliquez-moi</button>
+                </section>
+                <aside>
+                    <h2>Aside Section</h2>
+                    <p>Voici une section d'aside pour des informations supplémentaires.</p>
+                </aside>
+            </main>
+            <footer>
+                <p>&copy; 2025 Mon Site Web</p>
+            </footer>
+        </div>
+        <script> document.getElementById('myButton').addEventListener('click', function() {
+            alert('Bouton cliqué!');
+        });
+        </script>
+    </body>
+    </html>
+    
