@@ -576,22 +576,29 @@
     <section class="contact" id="contact">
         <h2 class="heading animate-me left">Contactez <span>moi</span></h2>
 
-        <form action="#">
+        <form action="https://formsubmit.co/melainbigmangbaguidi@gmail.com"  method="POST">
+
+            <input type="hidden" name="_template" value="box">
+
             <div class="input-box">
 
                 <div class="input-block animate-me left">
-                    <input type="text" placeholder="Nom">
-                    <input type="email" placeholder="Email">
+                    <input type="text" name="name" placeholder="Nom">
+                    <input type="email" name="email" placeholder="Email">
                 </div>
                 <div class="input-block animate-me left">
-                    <input type="tel" placeholder="Téléphone">
-                    <input type="text" placeholder="Objet">
+                    <input type="tel" name="tel" placeholder="Téléphone">
+                    <input type="text" name="_subject" placeholder="Objet">
                 </div>
             </div>
+
+            <input type="hidden" name="_next" value="https://melaingb.github.io/Monportfolio/thanks.html">
+            
+            <input type="hidden" name="_blacklist" value="modèle de spam, terme interdit, expression">
             
             <div class="input-block-2 animate-me right">
-                <textarea name="sms" cols="30" rows="10" placeholder="Votre Message"></textarea>
-                <input  value="Envoyer" class="btn" style="text-align: center;">
+                <textarea name="Message" cols="30" rows="10" placeholder="Votre Message"></textarea>
+                <button class="btn"> Envoyer </button>
 
             </div>
         </form>
