@@ -91,7 +91,37 @@ function setupFullscreenImage(buttonId, fullscreenImageId, closeButtonId) {
     });
 }
 
+// Documentation 
+
+const accordions = document.querySelectorAll('.option-card');
+    accordions.forEach(accordion => {
+    accordion.addEventListener('click', () => {
+        accordion.classList.toggle('active');
+        const panel = accordion.nextElementSibling;
+        if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+        } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+});
+});
+
+// BTS SIO
+
+document.querySelector('.show-more').addEventListener('click', function() {
+    alert('Fonction "Afficher plus" cliquée (fonctionnalité à développer).');
+});
+
+// Pour rabattre / ouvrir la sidebar
+const toggleBtn = document.getElementById('toggleSidebar');
+const sidebar = document.getElementById('sidebar');
+
+toggleBtn.addEventListener('click', function() {
+    sidebar.classList.toggle('collapsed');
+});
+
 setupFullscreenImage('showImage1', 'fullscreenImage1', 'closeButton1');
 setupFullscreenImage('showImage2', 'fullscreenImage2', 'closeButton2');
 setupFullscreenImage('showImage3', 'fullscreenImage3', 'closeButton3');
 setupFullscreenImage('showImage4', 'fullscreenImage4', 'closeButton4');
+setupFullscreenImage('showImage5', 'fullscreenImage5', 'closeButton5');

@@ -1,388 +1,67 @@
-<!--<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Éléments Dynamiques</title>
-    <style>body, html{
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%; 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: #f0f0f0;
-  }
-  
-  .dynamic-element {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s ease-out forwards;
-      font-size: 24px;
-      margin: 10px;
-      animation-delay: 1s; /* Delay of 1 second for appearance */
-  }
-  
-  .dynamic-element:nth-child(2) {
-      animation-delay: 12s; /* Different delay for the second element */
-  }
-  
-  @keyframes fadeIn {
-      to {
-          opacity: 1;
-          transform: translateY(0);
-      }
-  }
-  
-  </style>
-</head>
-<body>
-    <div class="dynamic-element">Je suis un div dynamique !</div>
-    <p class="dynamic-element">Je suis un paragraphe dynamique !</p>
-    
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Éléments Dynamiques</title>
-    <style>
-        body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
-}
-
-.section {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.dynamic-element {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-    font-size: 24px;
-    margin: 10px;
-}
-
-.dynamic-element.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-    </style>
-</head>
-<body>
-    <div class="section">
-        <div class="dynamic-element div1">Je suis un div dynamique 1 !</div>
-        <div class="dynamic-element div2">Je suis un div dynamique 2 !</div>
-        <p class="dynamic-element p1">Je suis un paragraphe dynamique 1 !</p>
-        <p class="dynamic-element p2">Je suis un paragraphe dynamique 2 !</p>
-        <div class="other-class dynamic-element">Je suis un autre div dynamique !</div>
-    </div>
-    <script>document.addEventListener("DOMContentLoaded", function() {
-        const elements = document.querySelectorAll('.dynamic-element');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        });
-    
-        elements.forEach(element => {
-            observer.observe(element);
-        });
-    });
-    </script>
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Services</title>
-   <style>body {
-    background-color: #1a1a2e;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    background-color: #0f3460;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 400px;
-    text-align: center;
-}
-
-.container h1 {
-    color: #00aaff;
-    margin-bottom: 10px;
-}
-
-.container p, .container h2 {
-    margin-bottom: 20px;
-}
-
-.container ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.container ul li {
-    background: url('checkmark.png') no-repeat left center;
-    background-size: 20px;
-    padding-left: 30px;
-    margin-bottom: 10px;
-    text-align: left;
-}
-</style>
+    <title>BTS SIO1 - Linux Unhatched</title>
+    <link rel="stylesheet" href="stylebts.css">
 </head>
 <body>
+
+    <header class="header">
+        <img src="logo-cisco.png" alt="Cisco Networking Academy" class="logo">
+        <img src="logo-ndg.png" alt="NDG" class="logo">
+        <h1>BTS SIO1 NOUVEAU - Linux Unhatched</h1>
+    </header>
+
     <div class="container">
-        <h1>Web Design</h1>
-        <p>With 07 years of experience as a professional web designer, I have acquired the skills and knowledge necessary to make your project a success!</p>
-        <h2>What I Provide</h2>
-        <ul>
-            <li>Design & build custom websites</li>
-            <li>Responsive Website Design</li>
-            <li>Search Engine Optimization (SEO)</li>
-            <li>Website Hosting</li>
-            <li>Website Maintenance and Support</li>
-        </ul>
-    </div>
-</body>
-</html>
+        <aside class="sidebar" id="sidebar">
+            <button id="toggleSidebar" class="toggle-btn">☰</button>
+            <input type="text" placeholder="Rechercher des ressources" class="search-bar">
+            <h2>Ressources du cours</h2>
+            <div class="resource-empty">
+                <img src="resource-icon.png" alt="Aucune ressource disponible" class="resource-icon">
+                <p>Aucune ressource disponible</p>
+            </div>
+        </aside>
 
-<body>
-    <button id="showImage1">Afficher Image 1</button>
-    <button id="showImage2">Afficher Image 2</button>
-    <button id="showImage3">Afficher Image 3</button>
+        <main class="main-content">
+            <section class="welcome">
+                <h2>Bienvenue sur NDG Linux Unhatched !</h2>
+                <div class="first-page">
+                    <h3>Première page <span class="show-more">Afficher plus</span></h3>
+                    <p>Ce cours Linux d'entrée de gamme est présenté par Network Development Group (NDG). 
+                    Les compétences enseignées dans ce cours s'appliquent à un large éventail de carrières, 
+                    notamment la mise en réseau, le développement de logiciels et l'administration de Linux.</p>
+                    
+                    <h4>Pour commencer :</h4>
+                    <ol>
+                        <li>Cliquez sur le <strong>Contenu du cours</strong>.</li>
+                        <li>Cochez la case pour accepter les termes et conditions, cliquez sur <strong>Soumettre</strong>.</li>
+                        <li>Fermez la fenêtre des termes et conditions, actualisez la fenêtre précédente et rechargez le contenu.</li>
+                    </ol>
+                </div>
+            </section>
 
-    <div class="fullscreen-image" id="fullscreenImage1">
-        <button class="close-button" id="closeButton1">X</button>
-        <img src="Photo/anssi.png" alt="Image 1">
-        <p class="image-caption">Ceci est l'image 1</p>
-    </div>
-
-    <div class="fullscreen-image" id="fullscreenImage2">
-        <button class="close-button" id="closeButton2">X</button>
-        <img src="Photo/cisco.png" alt="Image 2">
-        <p class="image-caption">Ceci est l'image 2</p>
-    </div>
-
-    <div class="fullscreen-image" id="fullscreenImage3">
-        <button class="close-button" id="closeButton3">X</button>
-        <img src="Photo/github.png" alt="Image 3">
-        <p class="image-caption">Ceci est l'image 3</p>
+            <section class="help">
+                <h3>Aide et ressources</h3>
+            </section>
+        </main>
     </div>
 
-</body>
-<style>
-    .fullscreen-image {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        flex-direction: column;
-    }
-
-    .fullscreen-image img {
-        max-width: 60%;
-        height: 80%;
-    }
-
-    .close-button {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background-color: #fff;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    .image-caption {
-        color: #fff;
-        margin-top: 10px;
-        font-size: 18px;
-        text-align: center;
-        background-color: skyblue;
-        width: 100%;
-        min-height: 10%;
-    }
-</style>
-<script>
-    function setupFullscreenImage(buttonId, fullscreenImageId, closeButtonId) {
-        const button = document.getElementById(buttonId);
-        const fullscreenImage = document.getElementById(fullscreenImageId);
-        const closeButton = document.getElementById(closeButtonId);
-
-        button.addEventListener('click', () => {
-            fullscreenImage.style.display = 'flex';
+    <script >// Pour l'animation "Afficher plus"
+        document.querySelector('.show-more').addEventListener('click', function() {
+            alert('Fonction "Afficher plus" cliquée (fonctionnalité à développer).');
         });
-
-        closeButton.addEventListener('click', () => {
-            fullscreenImage.style.display = 'none';
-        });
-
-        fullscreenImage.addEventListener('click', (event) => {
-            if (event.target === fullscreenImage) {
-                fullscreenImage.style.display = 'none';
-            }
-        });
-    }
-
-    setupFullscreenImage('showImage1', 'fullscreenImage1', 'closeButton1');
-    setupFullscreenImage('showImage2', 'fullscreenImage2', 'closeButton2');
-    setupFullscreenImage('showImage3', 'fullscreenImage3', 'closeButton3');
-</script>--><!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mon Site Web</title>
-        <style>
-         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-
-#container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1em;
-    text-align: center;
-}
-
-nav {
-    background-color: #333;
-    color: white;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 1em;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-main {
-    display: flex;
-    flex: 1;
-    padding: 2em;
-}
-
-#content {
-    flex: 3;
-}
-
-aside {
-    flex: 1;
-    background-color: #ddd;
-    padding: 1em;
-    margin-left: 1em;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 0.5em 1em;
-    border: none;
-    cursor: pointer;
-    margin-top: 1em;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-}
-   
-        </style>
-    </head>
-    <body>
-        <div id="container">
-            <header>
-                <h1>Bienvenue sur mon site web</h1>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <main>
-                <section id="content">
-                    <p>Ceci est un exemple de contenu de page web.</p>
-                    <button id="myButton">Cliquez-moi</button>
-                </section>
-                <aside>
-                    <h2>Aside Section</h2>
-                    <p>Voici une section d'aside pour des informations supplémentaires.</p>
-                </aside>
-            </main>
-            <footer>
-                <p>&copy; 2025 Mon Site Web</p>
-            </footer>
-        </div>
-        <script> document.getElementById('myButton').addEventListener('click', function() {
-            alert('Bouton cliqué!');
+        
+        // Pour rabattre / ouvrir la sidebar
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        
+        toggleBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('collapsed');
         });
         </script>
-    </body>
-    </html>
-    
+
+</body>
+</html>
