@@ -68,60 +68,48 @@ function setupCarousel(trackId, prevButtonId, nextButtonId) {
 setupCarousel('carouselTrack1', 'prevButton1', 'nextButton1');
 setupCarousel('carouselTrack2', 'prevButton2', 'nextButton2');
 
-
+// card js
 /* En savoir plus*/
-
-function setupFullscreenImage(buttonId, fullscreenImageId, closeButtonId) {
-    const button = document.getElementById(buttonId);
-    const fullscreenImage = document.getElementById(fullscreenImageId);
-    const closeButton = document.getElementById(closeButtonId);
-
-    button.addEventListener('click', () => {
-        fullscreenImage.style.display = 'flex';
-    });
-
-    closeButton.addEventListener('click', () => {
-        fullscreenImage.style.display = 'none';
-    });
-
-    fullscreenImage.addEventListener('click', (event) => {
-        if (event.target === fullscreenImage) {
-            fullscreenImage.style.display = 'none';
-        }
-    });
-}
-
-// Documentation 
-
-const accordions = document.querySelectorAll('.option-card');
-    accordions.forEach(accordion => {
-    accordion.addEventListener('click', () => {
-        accordion.classList.toggle('active');
-        const panel = accordion.nextElementSibling;
-        if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-        } else {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-        }
-});
-});
-
-// BTS SIO
-
-document.querySelector('.show-more').addEventListener('click', function() {
-    alert('Fonction "Afficher plus" cliquée (fonctionnalité à développer).');
-});
-
-// Pour rabattre / ouvrir la sidebar
-const toggleBtn = document.getElementById('toggleSidebar');
-const sidebar = document.getElementById('sidebar');
-
-toggleBtn.addEventListener('click', function() {
-    sidebar.classList.toggle('collapsed');
-});
 
 setupFullscreenImage('showImage1', 'fullscreenImage1', 'closeButton1');
 setupFullscreenImage('showImage2', 'fullscreenImage2', 'closeButton2');
 setupFullscreenImage('showImage3', 'fullscreenImage3', 'closeButton3');
 setupFullscreenImage('showImage4', 'fullscreenImage4', 'closeButton4');
 setupFullscreenImage('showImage5', 'fullscreenImage5', 'closeButton5');
+    
+function setupFullscreenImage(buttonId, imageId, closeButtonId) {
+    const button = document.getElementById(buttonId);
+    const image = document.getElementById(imageId);
+    const closeButton = document.getElementById(closeButtonId);
+
+    button.addEventListener('click', () => {
+        image.style.display = 'flex';
+    });
+
+    closeButton.addEventListener('click', () => {
+        image.style.display = 'none';
+    });
+}
+
+
+// Documentation
+const accordions = document.querySelectorAll('.option-card');
+accordions.forEach(accordion => {
+accordion.addEventListener('click', () => {
+    accordion.classList.toggle('active');
+    const panel = accordion.nextElementSibling;
+    if (panel.style.maxHeight) {
+    panel.style.maxHeight = null;
+    } else {
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
+});
+});
+
+
+
+// BTS SIO
+
+document.querySelector('.show-more').addEventListener('click', function() {
+    alert('Fonction "Afficher plus" cliquée (fonctionnalité à développer).');
+});
