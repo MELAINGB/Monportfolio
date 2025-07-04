@@ -142,15 +142,45 @@ span{
     }
     
     .sidebar.collapsed .search-bar,
-    .sidebar.collapsed h2,
-    .sidebar.collapsed .resource-empty {
+    .sidebar.collapsed h4,
+    .sidebar.collapsed .sidebar-menu {
         display: none;
     }
     
-    .resource-empty {
+    .sidebar-menu  {
         text-align: center;
         margin-top: 50px;
+
+        
     }
+    .sidebar-menu ul {
+        list-style: none;
+        
+    }
+    .sidebar-menu ul li:hover {
+        background-color: var(--second-bg-color);
+       
+    }
+    .sidebar-menu ul li {
+        margin: 10px 0;
+        border: #333 1px solid;
+        border-radius: 5px;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+        
+    }
+    .sidebar-menu ul li a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+    
+    .sidebar-menu ul li a:hover {
+        color: var(--main-color);
+       
+    }
+    
+    /* Resource Empty */
     
     .resource-icon {
         width: 80px;
