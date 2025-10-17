@@ -415,6 +415,7 @@
             padding: 1.5rem;
             border-radius: 10px;
             border-left: 4px solid var(--main-color);
+            border-bottom: 4px solid var(--main-color);
             transition: all 0.3s;
         }
 
