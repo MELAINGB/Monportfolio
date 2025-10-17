@@ -3,101 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTS SIO1 - Linux Unhatched</title>
-    <link rel="stylesheet" href="stylebts.css">
-    <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
-    <script  nomodule  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
+    <title>Veille Technologique - Bio-informatique | BTS SIO</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="btsstyle.css">
 </head>
 <body>
+    <header>
+        <a href="index.html" class="logo">Melain <span>GBAGUIDI</span></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="btssio.html">BTS SIO</a></li>
+            </ul>
+            <li style="color: red;">Site en cours de developpement</li>
+        </nav>
+        <div class="dark-mode-toggle" id="darkModeToggle">
+            <ion-icon name="moon-outline" id="darkModeIcon"></ion-icon>
+        </div>
+    </header>
 
-  <header>
-    <a href="index.html" class="logo">Melain <span> GBAGUIDI </span></a>
-    <ion-icon name="grid-outline" id="menu-icon"></ion-icon>
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <!-- <li><a href="#moi">Profil </a></li>
-            <li><a href="index.html ">Formations</a></li>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#projet"> Projets</a></li>-->
-            <li ><a href="btssio.html"> BTS SIO</a>
-                <ul >
-                    <li><a href="btssio.html">Veille technologique</a></li>   
-                    <li><a href="https://institutionsaintaspais.fr/formations/bts-services-informatiques-aux-organisations-option-slam-et-sisr/">Saint-Aspais</a></li>
-                    
-                </ul>
-            </li> 
-        </ul>
-          
-    </nav>
-    <div class="bx bx-moon" id="darkMode-icon"></div> <h1 style="color: red;">Site en cours de développement</h1>
-  </header>
+    <!-- Menu Hamburger pour mobile -->
+    <button class="menu-hamburger" id="menuHamburger">
+        <ion-icon name="menu-outline"></ion-icon>
+    </button>
 
     <div class="container">
+        <!-- Overlay pour fermer le menu sur mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
         <aside class="sidebar" id="sidebar">
-            <button id="toggleSidebar" class="toggle-btn"><ion-icon name="chevron-forward-outline"></ion-icon></button>
-            <h4>Bienvenue sur ma veille technologique</h4>
-            <input type="text" placeholder="Rechercher des ressources" class="search-bar">
+            <button id="toggleSidebar" class="toggle-btn">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+            <h4>Navigation</h4>
+            <input type="text" placeholder="Rechercher..." class="search-bar">
             
             <div class="sidebar-menu">
-              <ul>
-                <a href="#definition"><li>Définition</li></a>
-                <li><a href="#caractéristique">Caractéristique</a></li>
-                <li><a href="#ressources">Liens utiles</a></li>
-                <li><a href="#biblio">Bibliographie</a></li>
-              </ul>
-
+                <ul>
+                    <li>
+                        <a href="#definition">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            Définition
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#caracteristiques">
+                            <ion-icon name="list-outline"></ion-icon>
+                            Caractéristiques
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#applications">
+                            <ion-icon name="apps-outline"></ion-icon>
+                            Applications
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#outils">
+                            <ion-icon name="construct-outline"></ion-icon>
+                            Outils & Technologies
+                        </a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#actualites">
+                            <ion-icon name="newspaper-outline"></ion-icon>
+                            Actualités
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="#inventions">Inventions récentes</a></li>
+                            <li><a href="#decouvertes">Découvertes</a></li>
+                            <li><a href="#creations">Créations</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#ressources">
+                            <ion-icon name="link-outline"></ion-icon>
+                            Liens utiles
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="#sites-web">Sites web</a></li>
+                            <li><a href="#bases-donnees">Bases de données</a></li>
+                            <li><a href="#tutoriels">Tutoriels</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#biblio">
+                            <ion-icon name="book-outline"></ion-icon>
+                            Bibliographie
+                        </a>
+                    </li>
+                </ul>
             </div>
         </aside>
 
         <main class="main-content">
+            <!-- Section Définition -->
             <section class="welcome" id="definition">
-                <h2>La bio-informatique, c'est quoi?🤔</h2>
+                <h2>
+                    <ion-icon name="bulb-outline"></ion-icon>
+                    Qu'est-ce que la Bio-informatique ?
+                </h2>
                 <div class="first-page">
-                    <span class="show-more">Afficher plus</span>
-                    <p>La <span>Bio-informatique</span> est une discipline scientifique interdisciplinaire
-                        qui combine la biologie, l'informatique, les mathématiques et la physique pour analyser
-                        et interpréter les données biologiques. Elle permet de modéliser, stocker, visualiser
-                        et traiter des informations complexes issues des sciences du vivant, comme les génomes,
-                        les biomoléc Bio-informatique</span> est une discipline scientifique interdisciplinaire
+                    <p>
+                        La <span>bio-informatique</span> est une discipline scientifique interdisciplinaire
                         qui combine la biologie, l'informatique, les mathématiques et la physique pour analyser
                         et interpréter les données biologiques. Elle permet de modéliser, stocker, visualiser
                         et traiter des informations complexes issues des sciences du vivant, comme les génomes,
                         les biomolécules, ou les interactions entre organismes.
-
-                        Elle joue un rôle clé dans des domaines tels que la génomique, la médecine moléculaire et la recherche biomédicale, en facilitant la compréhension des processus biologiques et en contribuant à des avancées comme la médecine personnalisée.
-                    
+                    </p>
+                    <p>
+                        Elle joue un rôle clé dans des domaines tels que la génomique, la médecine moléculaire 
+                        et la recherche biomédicale, en facilitant la compréhension des processus biologiques 
+                        et en contribuant à des avancées comme la médecine personnalisée.
                     </p>
                     
-                    <h4>Pour commencer :</h4>
-                    <ol>
-                        <li>Cliquez sur le <strong>Contenu du cours</strong>.</li>
-                        <li>Cochez la case pour accepter les termes et conditions, cliquez sur <strong>Soumettre</strong>.</li>
-                        <li>Fermez la fenêtre des termes et conditions, actualisez la fenêtre précédente et rechargez le contenu.</li>
-                    </ol>
+                    <div class="info-box">
+                        <h4>💡 Pourquoi la bio-informatique ?</h4>
+                        <p>Avec l'explosion des données biologiques (Big Data), la bio-informatique est devenue indispensable pour analyser et donner du sens à ces informations massives.</p>
+                    </div>
                 </div>
             </section>
 
-            <section class="help" id="ressources">
-                <h3>Aide et ressources</h3>
+            <!-- Section Caractéristiques -->
+            <section id="caracteristiques">
+                <h2>
+                    <ion-icon name="list-outline"></ion-icon>
+                    Caractéristiques principales
+                </h2>
+                <p><em>Section à compléter : domaines d'application, méthodologies, compétences requises...</em></p>
+            </section>
+
+            <!-- Section Applications -->
+            <section id="applications">
+                <h2>
+                    <ion-icon name="apps-outline"></ion-icon>
+                    Domaines d'application
+                </h2>
+                <p><em>Section à compléter : génomique, protéomique, médecine personnalisée, recherche pharmaceutique...</em></p>
+            </section>
+
+            <!-- Section Outils -->
+            <section id="outils">
+                <h2>
+                    <ion-icon name="construct-outline"></ion-icon>
+                    Outils & Technologies
+                </h2>
+                <p><em>Section à compléter : logiciels, bases de données, langages de programmation utilisés...</em></p>
+            </section>
+
+            <!-- Section Actualités -->
+            <section id="actualites">
+                <h2>
+                    <ion-icon name="newspaper-outline"></ion-icon>
+                    Actualités & Innovations
+                </h2>
+                
+                <h3 id="inventions">🔬 Inventions récentes</h3>
+                <p><em>Section à compléter : nouvelles technologies, nouveaux outils développés...</em></p>
+                
+                <h3 id="decouvertes">🧬 Découvertes</h3>
+                <p><em>Section à compléter : découvertes scientifiques majeures, avancées en recherche...</em></p>
+                
+                <h3 id="creations">💡 Créations</h3>
+                <p><em>Section à compléter : nouveaux algorithmes, nouvelles méthodes d'analyse...</em></p>
+            </section>
+
+            <!-- Section Ressources -->
+            <section id="ressources">
+                <h2>
+                    <ion-icon name="link-outline"></ion-icon>
+                    Liens utiles
+                </h2>
+                
+                <h3 id="sites-web">🌐 Sites web</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>📚 Site 1</h4>
+                        <p>À compléter : lien et description</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>📚 Site 2</h4>
+                        <p>À compléter : lien et description</p>
+                    </div>
+                </div>
+                
+                <h3 id="bases-donnees">🗄️ Bases de données</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>🔬 Base de données 1</h4>
+                        <p>À compléter : lien et description</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>🔬 Base de données 2</h4>
+                        <p>À compléter : lien et description</p>
+                    </div>
+                </div>
+                
+                <h3 id="tutoriels">📖 Tutoriels</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>💻 Tutoriel 1</h4>
+                        <p>À compléter : lien et description</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>💻 Tutoriel 2</h4>
+                        <p>À compléter : lien et description</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Bibliographie -->
+            <section id="biblio">
+                <h2>
+                    <ion-icon name="book-outline"></ion-icon>
+                    Bibliographie
+                </h2>
+                <p><em>Section à compléter : sources, articles scientifiques, ouvrages de référence...</em></p>
             </section>
         </main>
     </div>
 
-    <script >// Pour l'animation "Afficher plus"
-        document.querySelector('.show-more').addEventListener('click', function() {
-            alert('Fonction "Afficher plus" cliquée (fonctionnalité à développer).');
-        });
-        
-        // Pour rabattre / ouvrir la sidebar
+    <script>
+        // Toggle sidebar (desktop)
         const toggleBtn = document.getElementById('toggleSidebar');
         const sidebar = document.getElementById('sidebar');
+        const icon = toggleBtn.querySelector('ion-icon');
         
         toggleBtn.addEventListener('click', function() {
             sidebar.classList.toggle('collapsed');
+            
+            if (sidebar.classList.contains('collapsed')) {
+                icon.setAttribute('name', 'chevron-back-outline');
+            } else {
+                icon.setAttribute('name', 'chevron-forward-outline');
+            }
         });
-        </script>
 
+        // Menu Hamburger (mobile)
+        const menuHamburger = document.getElementById('menuHamburger');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const hamburgerIcon = menuHamburger.querySelector('ion-icon');
+        
+        menuHamburger.addEventListener('click', function() {
+            sidebar.classList.toggle('mobile-active');
+            sidebarOverlay.classList.toggle('active');
+            
+            if (sidebar.classList.contains('mobile-active')) {
+                hamburgerIcon.setAttribute('name', 'close-outline');
+            } else {
+                hamburgerIcon.setAttribute('name', 'menu-outline');
+            }
+        });
+
+        // Fermer le menu en cliquant sur l'overlay
+        sidebarOverlay.addEventListener('click', function() {
+            sidebar.classList.remove('mobile-active');
+            sidebarOverlay.classList.remove('active');
+            hamburgerIcon.setAttribute('name', 'menu-outline');
+        });
+
+        // Fermer le menu mobile après avoir cliqué sur un lien
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('mobile-active');
+                    sidebarOverlay.classList.remove('active');
+                    hamburgerIcon.setAttribute('name', 'menu-outline');
+                }
+            });
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const body = document.body;
+        
+        // Vérifier le mode sauvegardé dans localStorage
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeIcon.setAttribute('name', 'sunny-outline');
+        }
+        
+        darkModeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                darkModeIcon.setAttribute('name', 'sunny-outline');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                darkModeIcon.setAttribute('name', 'moon-outline');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+        // Sous-menus dépliants
+        document.querySelectorAll('.has-submenu > a').forEach(menuItem => {
+            menuItem.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parentLi = this.parentElement;
+                const submenu = parentLi.querySelector('.submenu');
+                
+                // Toggle active class
+                parentLi.classList.toggle('active');
+                submenu.classList.toggle('active');
+                
+                // Scroll vers la section si le menu est déplié
+                if (parentLi.classList.contains('active')) {
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        setTimeout(() => {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 300);
+                    }
+                }
+            });
+        });
+
+        // Smooth scroll pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // Exclure les liens des menus principaux qui ont des sous-menus
+            if (!anchor.parentElement.classList.contains('has-submenu')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        });
+
+        // Fonction de recherche (à développer)
+        const searchBar = document.querySelector('.search-bar');
+        searchBar.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            // Logique de recherche à implémenter
+            console.log('Recherche:', searchTerm);
+        });
+    </script>
 </body>
 </html>
