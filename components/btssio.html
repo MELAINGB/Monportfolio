@@ -1,373 +1,1039 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique - Bio-informatique | BTS SIO</title>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="../assets/css/btsstyle.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille Technologique — Bio-informatique | BTS SIO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <style>
+    /* ── RESET & TOKENS ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #f5f3ee;
+      --surface:  #ffffff;
+      --ink:      #1a1a18;
+      --ink-2:    #4a4a44;
+      --ink-3:    #8a8a82;
+      --accent:   #1a6b3c;
+      --accent-2: #e8f5ee;
+      --accent-3: #c8e6d4;
+      --warn:     #c4622d;
+      --line:     rgba(26,26,24,.10);
+      --r:        14px;
+      --shadow:   0 2px 16px rgba(26,107,60,.08);
+      --shadow-lg:0 8px 40px rgba(26,107,60,.14);
+      --ff-head:  'Syne', sans-serif;
+      --ff-body:  'Lora', serif;
+      --ff-mono:  'DM Mono', monospace;
+    }
+
+    body.dark {
+      --bg:      #0f1710;
+      --surface: #182419;
+      --ink:     #e8f0ea;
+      --ink-2:   #a8bfac;
+      --ink-3:   #627466;
+      --accent:  #4caf74;
+      --accent-2:#1a2e1f;
+      --accent-3:#213828;
+      --line:    rgba(255,255,255,.08);
+      --shadow:  0 2px 16px rgba(0,0,0,.4);
+      --shadow-lg:0 8px 40px rgba(0,0,0,.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background .3s, color .3s;
+    }
+
+    /* ── NOISE TEXTURE ───────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .5;
+    }
+
+    /* ── LAYOUT ──────────────────────────────────────────────── */
+    .shell {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ──────────────────────────────────────────────── */
+    header {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: .9rem 2rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+    }
+
+    .logo {
+      font-family: var(--ff-head);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .logo span { color: var(--accent); }
+
+    .header-chip {
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      padding: .25rem .6rem;
+      border-radius: 99px;
+      background: var(--accent-2);
+      color: var(--accent);
+      border: 1px solid var(--accent-3);
+      letter-spacing: .04em;
+    }
+
+    .dev-badge {
+      margin-left: auto;
+      font-family: var(--ff-mono);
+      font-size: .7rem;
+      color: var(--warn);
+      background: color-mix(in srgb, var(--warn) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--warn) 30%, transparent);
+      padding: .2rem .55rem;
+      border-radius: 99px;
+    }
+
+    #darkToggle {
+      width: 36px; height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      background: var(--surface);
+      cursor: pointer;
+      display: grid; place-items: center;
+      color: var(--ink-2);
+      transition: background .2s, border-color .2s;
+      flex-shrink: 0;
+    }
+    #darkToggle:hover { background: var(--accent-2); border-color: var(--accent-3); }
+
+    /* ── SIDEBAR ─────────────────────────────────────────────── */
+    aside {
+      padding: 2rem 1.2rem;
+      border-right: 1px solid var(--line);
+      background: var(--surface);
+      position: sticky;
+      top: 57px;
+      height: calc(100vh - 57px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+
+    .sidebar-label {
+      font-family: var(--ff-mono);
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: .75rem;
+    }
+
+    .search-wrap {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .search-wrap ion-icon {
+      position: absolute;
+      left: 10px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-3);
+      font-size: 15px;
+    }
+    .search-input {
+      width: 100%;
+      padding: .5rem .75rem .5rem 2.1rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--ff-mono);
+      font-size: .8rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-input:focus { border-color: var(--accent); }
+
+    nav ul { list-style: none; }
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .5rem .65rem;
+      border-radius: 8px;
+      font-family: var(--ff-head);
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      text-decoration: none;
+      transition: background .15s, color .15s;
+    }
+    nav a:hover, nav a.active {
+      background: var(--accent-2);
+      color: var(--accent);
+    }
+    nav a ion-icon { font-size: 16px; flex-shrink: 0; }
+
+    .submenu {
+      list-style: none;
+      margin: .2rem 0 .2rem 1.8rem;
+      border-left: 2px solid var(--line);
+      padding-left: .75rem;
+      display: none;
+    }
+    .submenu.open { display: block; }
+    .submenu a {
+      font-weight: 400;
+      font-size: .78rem;
+      color: var(--ink-3);
+      padding: .3rem .5rem;
+    }
+    .submenu a:hover { color: var(--accent); background: transparent; }
+
+    /* ── MAIN ────────────────────────────────────────────────── */
+    main {
+      padding: 3rem 3.5rem;
+      max-width: 860px;
+    }
+
+    section { margin-bottom: 5rem; }
+
+    /* ── SECTION HEADER ─────────────────────────────────────── */
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+    }
+    .sec-icon {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: var(--accent-2);
+      border: 1px solid var(--accent-3);
+      display: grid; place-items: center;
+      color: var(--accent);
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    h2 {
+      font-family: var(--ff-head);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--ink);
+    }
+    h3 {
+      font-family: var(--ff-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 1.75rem 0 .75rem;
+    }
+    h3 .emoji { margin-right: .3rem; }
+    p { color: var(--ink-2); margin-bottom: .85rem; }
+    strong { color: var(--ink); font-weight: 600; }
+
+    /* ── HERO (définition) ───────────────────────────────────── */
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: 'BIOINFORMATIQUE';
+      position: absolute;
+      top: -10px; right: -10px;
+      font-family: var(--ff-head);
+      font-size: 5rem;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: .04;
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -.05em;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1 1 130px;
+      background: var(--accent-2);
+      border: 1px solid var(--accent-3);
+      border-radius: 10px;
+      padding: .9rem 1rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--ff-mono);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--accent);
+      display: block;
+    }
+    .stat-label {
+      font-family: var(--ff-head);
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .info-box {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: var(--accent-2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      font-size: .9rem;
+    }
+    .info-box p { margin: 0; }
+
+    /* ── CARDS LIST ──────────────────────────────────────────── */
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+    }
+    .card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .9rem 1rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .card-list li:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+    .card-list .cl-body { flex: 1; }
+    .card-list .cl-src a {
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: .2rem .5rem;
+      border: 1px solid var(--accent-3);
+      border-radius: 99px;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+    .card-list .cl-src a:hover { background: var(--accent-2); }
+    .card-list .cl-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--accent-2);
+      display: grid; place-items: center;
+      color: var(--accent);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: .05rem;
+    }
+
+    /* ── TIMELINE ────────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--line);
+    }
+    .t-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .t-item.visible { opacity: 1; transform: translateX(0); }
+    .t-dot {
+      position: absolute;
+      left: -1.6rem;
+      top: .6rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px var(--accent-3);
+    }
+    .t-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .9rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+    .t-date {
+      font-family: var(--ff-mono);
+      font-size: .75rem;
+      color: var(--accent);
+      margin-bottom: .2rem;
+    }
+    .t-title {
+      font-family: var(--ff-head);
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--ink);
+      margin-bottom: .3rem;
+    }
+    .t-text { font-size: .88rem; color: var(--ink-2); }
+    .t-src { margin-top: .5rem; }
+    .t-src a {
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: .2rem .5rem;
+      border: 1px solid var(--accent-3);
+      border-radius: 99px;
+    }
+
+    /* ── GRID LAYOUT (carac) ─────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ── OUTILS PILLS ────────────────────────────────────────── */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: .85rem;
+      margin-top: .5rem;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .tool-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .tool-card-head {
+      display: flex; align-items: center; gap: .5rem;
+      margin-bottom: .4rem;
+    }
+    .tool-badge {
+      font-family: var(--ff-mono);
+      font-size: .65rem;
+      padding: .15rem .45rem;
+      border-radius: 99px;
+      font-weight: 400;
+    }
+    .badge-lang { background: color-mix(in srgb, #3b82f6 15%, transparent); color: #3b82f6; border: 1px solid color-mix(in srgb, #3b82f6 30%, transparent); }
+    .badge-db   { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); border: 1px solid color-mix(in srgb, var(--warn) 30%, transparent); }
+    .badge-tool { background: var(--accent-2); color: var(--accent); border: 1px solid var(--accent-3); }
+    .badge-ia   { background: color-mix(in srgb, #8b5cf6 15%, transparent); color: #8b5cf6; border: 1px solid color-mix(in srgb, #8b5cf6 30%, transparent); }
+    .tool-name { font-family: var(--ff-head); font-weight: 700; font-size: .9rem; color: var(--ink); }
+    .tool-desc { font-size: .8rem; color: var(--ink-3); line-height: 1.45; }
+
+    /* ── ACTU CARDS ──────────────────────────────────────────── */
+    .actu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .actu-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 1.25rem 1.4rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .actu-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .actu-date {
+      flex-shrink: 0;
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      background: var(--accent-2);
+      color: var(--accent);
+      border: 1px solid var(--accent-3);
+      border-radius: 8px;
+      padding: .35rem .6rem;
+      text-align: center;
+      line-height: 1.3;
+      min-width: 52px;
+    }
+    .actu-date .day { font-size: 1.2rem; font-weight: 400; display: block; }
+    .actu-body { flex: 1; }
+    .actu-title {
+      font-family: var(--ff-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: .3rem;
+    }
+    .actu-desc { font-size: .88rem; color: var(--ink-2); }
+    .actu-tag {
+      display: inline-block;
+      margin-top: .5rem;
+      font-family: var(--ff-mono);
+      font-size: .68rem;
+      padding: .15rem .45rem;
+      border-radius: 99px;
+      background: var(--accent-2);
+      color: var(--accent);
+      border: 1px solid var(--accent-3);
+    }
+
+    /* ── BIBLIO ──────────────────────────────────────────────── */
+    .biblio-list {
+      list-style: none;
+      counter-reset: bib;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .biblio-list li {
+      counter-increment: bib;
+      display: flex;
+      align-items: baseline;
+      gap: .75rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      font-size: .88rem;
+      color: var(--ink-2);
+    }
+    .biblio-list li::before {
+      content: '[' counter(bib) ']';
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .biblio-list a { color: var(--accent); text-underline-offset: 3px; }
+
+    /* ── COMPETENCE PILLS ────────────────────────────────────── */
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: .5rem;
+    }
+    .skill-pill {
+      font-family: var(--ff-head);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: .35rem .8rem;
+      border-radius: 99px;
+      background: var(--accent-2);
+      color: var(--accent);
+      border: 1px solid var(--accent-3);
+    }
+
+    /* ── SCROLL REVEAL ───────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ──────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .shell { grid-template-columns: 1fr; }
+      aside { display: none; }
+      main { padding: 2rem 1.25rem; }
+    }
+
+    /* ── ACTIVE NAV ──────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--accent-3); border-radius: 99px; }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo">Melain <span>GBAGUIDI</span></a>
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="btssio.html">BTS SIO</a></li>
-            </ul>
-            <li style="color: red;">Site en cours de developpement</li>
-        </nav>
-        <div class="dark-mode-toggle" id="darkModeToggle">
-            <ion-icon name="moon-outline" id="darkModeIcon"></ion-icon>
-        </div>
-    </header>
 
-    <!-- Menu Hamburger pour mobile -->
-    <button class="menu-hamburger" id="menuHamburger">
-        <ion-icon name="menu-outline"></ion-icon>
+<div class="shell">
+
+  <!-- ═══ HEADER ═══════════════════════════════════════════════ -->
+  <header>
+    <a href="/index.html" class="logo">Melain <span>GBAGUIDI</span></a>
+    <span class="header-chip">BTS SIO · Veille technologique</span>
+    <span class="dev-badge">site en cours de  développement</span>
+    <button id="darkToggle" title="Mode sombre">
+      <ion-icon name="moon-outline" id="darkIcon"></ion-icon>
     </button>
+  </header>
 
-    <div class="container">
-        <!-- Overlay pour fermer le menu sur mobile -->
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
-        
-        <aside class="sidebar" id="sidebar">
-            <button id="toggleSidebar" class="toggle-btn">
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-            </button>
-            <h4>Navigation</h4>
-            <input type="text" placeholder="Rechercher..." class="search-bar">
-            
-            <div class="sidebar-menu">
-                <ul>
-                    <li>
-                        <a href="#definition">
-                            <ion-icon name="information-circle-outline"></ion-icon>
-                            Définition
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#caracteristiques">
-                            <ion-icon name="list-outline"></ion-icon>
-                            Caractéristiques
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#applications">
-                            <ion-icon name="apps-outline"></ion-icon>
-                            Applications
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#outils">
-                            <ion-icon name="construct-outline"></ion-icon>
-                            Outils & Technologies
-                        </a>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#actualites">
-                            <ion-icon name="newspaper-outline"></ion-icon>
-                            Actualités
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="#inventions">Inventions récentes</a></li>
-                            <li><a href="#decouvertes">Découvertes</a></li>
-                            <li><a href="#creations">Créations</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#ressources">
-                            <ion-icon name="link-outline"></ion-icon>
-                            Liens utiles
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="#sites-web">Sites web</a></li>
-                            <li><a href="#tutoriels">Tutoriels</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#biblio">
-                            <ion-icon name="book-outline"></ion-icon>
-                            Bibliographie
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <!-- Section Définition -->
-            <section class="welcome" id="definition">
-                <h2>
-                    <ion-icon name="bulb-outline"></ion-icon>
-                    Qu'est-ce que la Bio-informatique ?
-                </h2>
-                <div class="first-page">
-                    <p>
-                        La <span>bio-informatique</span> est une discipline scientifique interdisciplinaire
-                        qui combine la biologie, l'informatique, les mathématiques et la physique pour analyser
-                        et interpréter les données biologiques. Elle permet de modéliser, stocker, visualiser
-                        et traiter des informations complexes issues des sciences du vivant, comme les génomes,
-                        les biomolécules, ou les interactions entre organismes.
-                    </p>
-                    <p>
-                        Elle joue un rôle clé dans des domaines tels que la génomique, la médecine moléculaire 
-                        et la recherche biomédicale, en facilitant la compréhension des processus biologiques 
-                        et en contribuant à des avancées comme la médecine personnalisée.
-                    </p>
-                    
-                    <div class="info-box">
-                        <h4>💡 Pourquoi la bio-informatique ?</h4>
-                        <p>Avec l'explosion des données biologiques (Big Data), la bio-informatique est devenue indispensable pour analyser et donner du sens à ces informations massives.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section Caractéristiques -->
-            <section id="caracteristiques">
-                <h2>
-                    <ion-icon name="list-outline"></ion-icon>
-                    Caractéristiques principales
-                </h2>
-                <p><em>Section à compléter : domaines d'application, méthodologies, compétences requises...</em>
-
-                <h3>🧪 1. Méthodologies utilisées</h3>
-                <ul>
-                    <li>Analyse de séquences : alignement, annotation, comparaison.</li>
-                    <li>Consultation de bases de données : GenBank, UniProt, Ensembl, etc.</li>
-                    <li>Modélisation 3D des structures moléculaires.</li>
-                    <li>Apprentissage automatique et intelligence artificielle pour la prédiction biologique.</li>
-                    <li>Outils statistiques pour interpréter les données expérimentales.</li>
-                    <li>Visualisation : génomes, réseaux biologiques, structures moléculaires.</li>
-                    <li>Comparaison phylogénétique : arbres évolutifs.</li>
-                </ul>
-
-                <h3>🧠 2. Compétences requises</h3>
-                <ul>
-                    <li>Connaissances solides en biologie moléculaire et cellulaire.</li>
-                    <li>Maîtrise de langages de programmation : Python, R, Bash, etc.</li>
-                    <li>Utilisation de bases de données biologiques et systèmes de gestion de bases de données (SQL).</li>
-                    <li>Capacités d’analyse statistique et de traitement de données.</li>
-                    <li>Lecture et interprétation critique des résultats.</li>
-                    <li>Capacité à travailler en équipe pluridisciplinaire (biologistes, chercheurs, développeurs).</li>
-                </ul>
-            </p>
-            </section>
-
-            <!-- Section Applications -->
-            <section id="applications">
-                <h2>
-                    <ion-icon name="apps-outline"></ion-icon>
-                    Domaines d'application
-                </h2>
-                <p><em>Section à compléter : génomique, protéomique, médecine personnalisée, recherche pharmaceutique...</em>
-                <h3>📌 1. Domaines d’application</h3>
-                <ul>
-                    <li><strong>Génomique :</strong> étude des séquences d’ADN et d’ARN.</li>
-                    <li><strong>Protéomique :</strong> analyse des protéines et de leur structure.</li>
-                    <li><strong>Médecine personnalisée :</strong> traitements adaptés au profil génétique du patient.</li>
-                    <li><strong>Recherche pharmaceutique :</strong> conception de médicaments assistée par ordinateur.</li>
-                    <li><strong>Évolution et phylogénie :</strong> étude des relations évolutives entre espèces.</li>
-                    <li><strong>Biologie des systèmes :</strong> modélisation des réseaux d'interactions biologiques.</li>
-                    <li><strong>Agronomie / Biotechnologies :</strong> amélioration des espèces et traçabilité génétique.</li>
-                </ul></p>
-            </section>
-
-            <!-- Section Outils -->
-            <section id="outils">
-                <h2>
-                    <ion-icon name="construct-outline"></ion-icon>
-                    Outils & Technologies
-                </h2>
-                <p><em>Section à compléter : logiciels, bases de données, langages de programmation utilisés...</em></p>
-            </section>
-
-            <!-- Section Actualités -->
-            <section id="actualites">
-                <h2>
-                    <ion-icon name="newspaper-outline"></ion-icon>
-                    Actualités & Innovations
-                </h2>
-                
-                <h3 id="inventions">🔬 Inventions récentes</h3>
-                <p><em>Section à compléter : nouvelles technologies, nouveaux outils développés...</em></p>
-                
-                <h3 id="decouvertes">🧬 Découvertes</h3>
-                <p><em>Section à compléter : découvertes scientifiques majeures, avancées en recherche...</em></p>
-                
-                <h3 id="creations">💡 Créations</h3>
-                <p><em>Section à compléter : nouveaux algorithmes, nouvelles méthodes d'analyse...</em></p>
-            </section>
-
-            <!-- Section Ressources -->
-            <section id="ressources">
-                <h2>
-                    <ion-icon name="link-outline"></ion-icon>
-                    Liens utiles
-                </h2>
-                
-                <h3 id="sites-web">🌐 Sites web</h3>
-                <div class="resource-grid">
-                    <div class="resource-card">
-                        <h4>📚 Site 1</h4>
-                        <p>À compléter : lien et description</p>
-                    </div>
-                    <div class="resource-card">
-                        <h4>📚 Site 2</h4>
-                        <p>À compléter : lien et description</p>
-                    </div>
-                </div>
-                
-                <h3 id="tutoriels">📖 Tutoriels</h3>
-                <div class="resource-grid">
-                    <div class="resource-card">
-                        <h4>💻 Tutoriel 1</h4>
-                        <p>À compléter : lien et description</p>
-                    </div>
-                    <div class="resource-card">
-                        <h4>💻 Tutoriel 2</h4>
-                        <p>À compléter : lien et description</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section Bibliographie -->
-            <section id="biblio">
-                <h2>
-                    <ion-icon name="book-outline"></ion-icon>
-                    Bibliographie
-                </h2>
-                <p><em>Section à compléter : sources, articles scientifiques, ouvrages de référence...</em></p>
-            </section>
-        </main>
+  <!-- ═══ SIDEBAR ══════════════════════════════════════════════ -->
+  <aside>
+    <p class="sidebar-label">Navigation</p>
+    <div class="search-wrap">
+      <ion-icon name="search-outline"></ion-icon>
+      <input type="text" class="search-input" placeholder="Rechercher…" id="searchInput">
     </div>
+    <nav>
+      <ul>
+        <li><a href="#definition"><ion-icon name="bulb-outline"></ion-icon>Définition</a></li>
+        <li><a href="#caracteristiques"><ion-icon name="list-outline"></ion-icon>Caractéristiques</a></li>
+        <li><a href="#applications"><ion-icon name="apps-outline"></ion-icon>Applications</a></li>
+        <li><a href="#outils"><ion-icon name="construct-outline"></ion-icon>Outils & Technologies</a></li>
+        <li>
+          <a href="#actualites" class="has-sub"><ion-icon name="newspaper-outline"></ion-icon>Actualités</a>
+          <ul class="submenu" id="sub-actu">
+            <li><a href="#inventions">Inventions récentes</a></li>
+            <li><a href="#decouvertes">Découvertes</a></li>
+            <li><a href="#creations">Créations</a></li>
+          </ul>
+        </li>
+        <li><a href="#biblio"><ion-icon name="book-outline"></ion-icon>Bibliographie</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-    <script>
-        // Toggle sidebar (desktop)
-        const toggleBtn = document.getElementById('toggleSidebar');
-        const sidebar = document.getElementById('sidebar');
-        const icon = toggleBtn.querySelector('ion-icon');
-        
-        toggleBtn.addEventListener('click', function() {
-            sidebar.classList.toggle('collapsed');
-            
-            if (sidebar.classList.contains('collapsed')) {
-                icon.setAttribute('name', 'chevron-back-outline');
-            } else {
-                icon.setAttribute('name', 'chevron-forward-outline');
-            }
-        });
+  <!-- ═══ MAIN ══════════════════════════════════════════════════ -->
+  <main>
 
-        // Menu Hamburger (mobile)
-        const menuHamburger = document.getElementById('menuHamburger');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-        const hamburgerIcon = menuHamburger.querySelector('ion-icon');
-        
-        menuHamburger.addEventListener('click', function() {
-            sidebar.classList.toggle('mobile-active');
-            sidebarOverlay.classList.toggle('active');
-            
-            if (sidebar.classList.contains('mobile-active')) {
-                hamburgerIcon.setAttribute('name', 'close-outline');
-            } else {
-                hamburgerIcon.setAttribute('name', 'menu-outline');
-            }
-        });
+    <!-- ── DÉFINITION ──────────────────────────────────────── -->
+    <section id="definition">
+      <div class="sec-head reveal">
+        <div class="sec-icon"><ion-icon name="bulb-outline"></ion-icon></div>
+        <h2>Qu'est-ce que la Bio-informatique ?</h2>
+      </div>
 
-        // Fermer le menu en cliquant sur l'overlay
-        sidebarOverlay.addEventListener('click', function() {
-            sidebar.classList.remove('mobile-active');
-            sidebarOverlay.classList.remove('active');
-            hamburgerIcon.setAttribute('name', 'menu-outline');
-        });
+      <div class="hero-card reveal">
+        <p>La <strong>bio-informatique</strong> est une discipline scientifique interdisciplinaire qui combine
+        <strong>biologie</strong>, <strong>informatique</strong>, <strong>mathématiques</strong> et <strong>physique</strong>
+        pour analyser et interpréter les données biologiques complexes issues des sciences du vivant : génomes,
+        biomolécules, interactions entre organismes…</p>
+        <p>Elle joue un rôle clé dans la <em>génomique</em>, la <em>médecine moléculaire</em> et la <em>recherche
+        biomédicale</em>, en facilitant la compréhension des processus biologiques et en contribuant à des avancées
+        comme la médecine personnalisée.</p>
 
-        // Fermer le menu mobile après avoir cliqué sur un lien
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    sidebar.classList.remove('mobile-active');
-                    sidebarOverlay.classList.remove('active');
-                    hamburgerIcon.setAttribute('name', 'menu-outline');
-                }
-            });
-        });
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">~3 Mds</span>
+            <span class="stat-label">paires de bases dans l'ADN humain</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">200+</span>
+            <span class="stat-label">milliards de séquences dans GenBank</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">2003</span>
+            <span class="stat-label">fin du Human Genome Project</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">AlphaFold</span>
+            <span class="stat-label">IA révolutionne la biologie structurale</span>
+          </div>
+        </div>
 
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const darkModeIcon = document.getElementById('darkModeIcon');
-        const body = document.body;
-        
-        // Vérifier le mode sauvegardé dans localStorage
-        const savedMode = localStorage.getItem('darkMode');
-        if (savedMode === 'enabled') {
-            body.classList.add('dark-mode');
-            darkModeIcon.setAttribute('name', 'sunny-outline');
-        }
-        
-        darkModeToggle.addEventListener('click', function() {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                darkModeIcon.setAttribute('name', 'sunny-outline');
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                darkModeIcon.setAttribute('name', 'moon-outline');
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
+        <div class="info-box reveal">
+          <p>💡 <strong>Pourquoi la bio-informatique ?</strong> — Avec l'explosion des données biologiques (Big Data),
+          la bio-informatique est devenue indispensable pour analyser et donner du sens à ces informations massives.</p>
+        </div>
+      </div>
+    </section>
 
-        // Sous-menus dépliants
-        document.querySelectorAll('.has-submenu > a').forEach(menuItem => {
-            menuItem.addEventListener('click', function(e) {
-                e.preventDefault();
-                const parentLi = this.parentElement;
-                const submenu = parentLi.querySelector('.submenu');
-                
-                // Toggle active class
-                parentLi.classList.toggle('active');
-                submenu.classList.toggle('active');
-                
-                // Scroll vers la section si le menu est déplié
-                if (parentLi.classList.contains('active')) {
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        setTimeout(() => {
-                            targetSection.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }, 300);
-                    }
-                }
-            });
-        });
+    <!-- ── CARACTÉRISTIQUES ────────────────────────────────── -->
+    <section id="caracteristiques">
+      <div class="sec-head reveal">
+        <div class="sec-icon"><ion-icon name="list-outline"></ion-icon></div>
+        <h2>Caractéristiques & Évolution</h2>
+      </div>
 
-        // Smooth scroll pour les liens de navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            // Exclure les liens des menus principaux qui ont des sous-menus
-            if (!anchor.parentElement.classList.contains('has-submenu')) {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            }
-        });
+      <p class="reveal">La bio-informatique est liée aux progrès du séquençage, des bases de données et de
+      l'intelligence artificielle. Son évolution est jalonnée de dates clés.</p>
 
-        // Fonction de recherche (à développer)
-        const searchBar = document.querySelector('.search-bar');
-        searchBar.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            // Logique de recherche à implémenter
-            console.log('Recherche:', searchTerm);
-        });
-    </script>
+      <div class="two-col">
+        <!-- FRISE -->
+        <div>
+          <h3><span class="emoji">🕐</span>Frise chronologique</h3>
+          <div class="timeline">
+            <div class="t-item"><div class="t-dot"></div><div class="t-card">
+              <div class="t-date">1982</div>
+              <div class="t-title">GenBank</div>
+              <div class="t-text">Création d'une base majeure de séquences nucléotidiques.</div>
+              <div class="t-src"><a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank">Source</a></div>
+            </div></div>
+            <div class="t-item"><div class="t-dot"></div><div class="t-card">
+              <div class="t-date">1990 → 2003</div>
+              <div class="t-title">Human Genome Project</div>
+              <div class="t-text">Industrialisation du séquençage & montée en puissance de la bio-informatique.</div>
+              <div class="t-src"><a href="https://www.genome.gov/human-genome-project" target="_blank">Source</a></div>
+            </div></div>
+            <div class="t-item"><div class="t-dot"></div><div class="t-card">
+              <div class="t-date">Années 2010</div>
+              <div class="t-title">NGS & Big Data</div>
+              <div class="t-text">Explosion des données : pipelines, cloud, analyses multi-omics.</div>
+              <div class="t-src"><a href="https://www.nature.com/collections/bigdata" target="_blank">Source</a></div>
+            </div></div>
+            <div class="t-item"><div class="t-dot"></div><div class="t-card">
+              <div class="t-date">2020</div>
+              <div class="t-title">AlphaFold2</div>
+              <div class="t-text">L'IA révolutionne la prédiction de structures protéiques.</div>
+              <div class="t-src"><a href="https://www.nature.com/articles/s41586-021-03819-2" target="_blank">Source</a></div>
+            </div></div>
+            <div class="t-item"><div class="t-dot"></div><div class="t-card">
+              <div class="t-date">2022 → 2025</div>
+              <div class="t-title">Bio-informatique augmentée</div>
+              <div class="t-text">IA, intégration multi-omics, médecine de précision & génomique comparative.</div>
+              <div class="t-src"><a href="https://www.genome.gov/health/Genomics-and-Medicine" target="_blank">Source</a></div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- LISTES -->
+        <div>
+          <h3><span class="emoji">📌</span>Domaines d'application</h3>
+          <ul class="card-list">
+            <li><div class="cl-icon"><ion-icon name="analytics-outline"></ion-icon></div><div class="cl-body"><strong>Génomique :</strong> analyse et annotation des génomes à grande échelle.</div><div class="cl-src"><a href="https://www.genome.gov/human-genome-project" target="_blank">Source</a></div></li>
+            <li><div class="cl-icon"><ion-icon name="cube-outline"></ion-icon></div><div class="cl-body"><strong>Protéomique :</strong> étude des protéines (fonctions, structures, interactions).</div><div class="cl-src"><a href="https://www.uniprot.org/" target="_blank">Source</a></div></li>
+            <li><div class="cl-icon"><ion-icon name="person-outline"></ion-icon></div><div class="cl-body"><strong>Médecine personnalisée :</strong> traitements adaptés au profil génétique.</div><div class="cl-src"><a href="https://www.genome.gov/health/Genomics-and-Medicine" target="_blank">Source</a></div></li>
+            <li><div class="cl-icon"><ion-icon name="flask-outline"></ion-icon></div><div class="cl-body"><strong>Pharmacologie :</strong> identification de cibles et conception assistée.</div><div class="cl-src"><a href="https://www.ncbi.nlm.nih.gov/" target="_blank">Source</a></div></li>
+            <li><div class="cl-icon"><ion-icon name="git-branch-outline"></ion-icon></div><div class="cl-body"><strong>Phylogénie :</strong> arbres évolutifs, mutations, génomique comparative.</div><div class="cl-src"><a href="https://academic.oup.com/bioinformatics" target="_blank">Source</a></div></li>
+          </ul>
+
+          <h3><span class="emoji">🧠</span>Compétences clés</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Biologie moléculaire</span>
+            <span class="skill-pill">Python / R / Bash</span>
+            <span class="skill-pill">Bases de données</span>
+            <span class="skill-pill">Statistiques</span>
+            <span class="skill-pill">Machine Learning</span>
+            <span class="skill-pill">Travail pluridisciplinaire</span>
+            <span class="skill-pill">Pipelines NGS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── APPLICATIONS ────────────────────────────────────── -->
+    <section id="applications">
+      <div class="sec-head reveal">
+        <div class="sec-icon"><ion-icon name="apps-outline"></ion-icon></div>
+        <h2>Domaines d'application</h2>
+      </div>
+
+      <ul class="card-list reveal">
+        <li><div class="cl-icon"><ion-icon name="analytics-outline"></ion-icon></div><div class="cl-body"><strong>Génomique :</strong> étude et séquençage de l'ADN/ARN à l'échelle du génome entier.</div></li>
+        <li><div class="cl-icon"><ion-icon name="cube-outline"></ion-icon></div><div class="cl-body"><strong>Protéomique :</strong> analyse des protéines, de leurs structures 3D et interactions.</div></li>
+        <li><div class="cl-icon"><ion-icon name="person-outline"></ion-icon></div><div class="cl-body"><strong>Médecine personnalisée :</strong> traitements ciblés en fonction du profil génétique du patient.</div></li>
+        <li><div class="cl-icon"><ion-icon name="flask-outline"></ion-icon></div><div class="cl-body"><strong>Recherche pharmaceutique :</strong> conception de médicaments assistée par ordinateur (drug design).</div></li>
+        <li><div class="cl-icon"><ion-icon name="git-branch-outline"></ion-icon></div><div class="cl-body"><strong>Évolution & Phylogénie :</strong> étude des relations évolutives entre espèces.</div></li>
+        <li><div class="cl-icon"><ion-icon name="share-social-outline"></ion-icon></div><div class="cl-body"><strong>Biologie des systèmes :</strong> modélisation des réseaux d'interactions biologiques.</div></li>
+        <li><div class="cl-icon"><ion-icon name="leaf-outline"></ion-icon></div><div class="cl-body"><strong>Agronomie / Biotechnologies :</strong> amélioration des espèces et traçabilité génétique.</div></li>
+      </ul>
+    </section>
+
+    <!-- ── OUTILS ──────────────────────────────────────────── -->
+    <section id="outils">
+      <div class="sec-head reveal">
+        <div class="sec-icon"><ion-icon name="construct-outline"></ion-icon></div>
+        <h2>Outils & Technologies</h2>
+      </div>
+
+      <h3><span class="emoji">💻</span>Langages de programmation</h3>
+      <div class="tool-grid reveal">
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-lang">Langage</span></div>
+          <div class="tool-name">Python</div>
+          <div class="tool-desc">Langage principal : BioPython, Pandas, NumPy, scikit-learn.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-lang">Langage</span></div>
+          <div class="tool-name">R</div>
+          <div class="tool-desc">Statistiques & bioconducteur : DESeq2, ggplot2, limma.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-lang">Langage</span></div>
+          <div class="tool-name">Bash / Shell</div>
+          <div class="tool-desc">Automatisation de pipelines d'analyse NGS sur serveur HPC.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-lang">Langage</span></div>
+          <div class="tool-name">Perl</div>
+          <div class="tool-desc">Scripts de traitement de texte et de formats biologiques.</div>
+        </div>
+      </div>
+
+      <h3><span class="emoji">🗄️</span>Bases de données</h3>
+      <div class="tool-grid reveal">
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-db">Base de données</span></div>
+          <div class="tool-name">GenBank / NCBI</div>
+          <div class="tool-desc">Base de séquences nucléotidiques la plus complète au monde.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-db">Base de données</span></div>
+          <div class="tool-name">UniProt</div>
+          <div class="tool-desc">Référence mondiale pour les séquences et fonctions protéiques.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-db">Base de données</span></div>
+          <div class="tool-name">PDB</div>
+          <div class="tool-desc">Protein Data Bank : structures 3D des macromolécules biologiques.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-db">Base de données</span></div>
+          <div class="tool-name">Ensembl</div>
+          <div class="tool-desc">Annotation des génomes de nombreuses espèces vertébrées.</div>
+        </div>
+      </div>
+
+      <h3><span class="emoji">🤖</span>Intelligence Artificielle</h3>
+      <div class="tool-grid reveal">
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-ia">IA</span></div>
+          <div class="tool-name">AlphaFold 2/3</div>
+          <div class="tool-desc">Prédiction de structures protéiques par deep learning (DeepMind).</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-ia">IA</span></div>
+          <div class="tool-name">ESMFold</div>
+          <div class="tool-desc">Modèle de langage protéique de Meta AI pour la prédiction de structure.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-ia">IA</span></div>
+          <div class="tool-name">DNABERT</div>
+          <div class="tool-desc">Modèle transformeur appliqué aux séquences génomiques.</div>
+        </div>
+      </div>
+
+      <h3><span class="emoji">🔧</span>Logiciels & outils d'analyse</h3>
+      <div class="tool-grid reveal">
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-tool">Outil</span></div>
+          <div class="tool-name">BLAST</div>
+          <div class="tool-desc">Alignement & recherche de similarité entre séquences biologiques.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-tool">Outil</span></div>
+          <div class="tool-name">GATK</div>
+          <div class="tool-desc">Détection de variants génomiques dans les données NGS.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-tool">Outil</span></div>
+          <div class="tool-name">Galaxy</div>
+          <div class="tool-desc">Plateforme open-source d'analyse bioinformatique en ligne.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-head"><span class="tool-badge badge-tool">Outil</span></div>
+          <div class="tool-name">Nextflow / Snakemake</div>
+          <div class="tool-desc">Orchestration de pipelines d'analyse reproductibles et scalables.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ACTUALITÉS ──────────────────────────────────────── -->
+    <section id="actualites">
+      <div class="sec-head reveal">
+        <div class="sec-icon"><ion-icon name="newspaper-outline"></ion-icon></div>
+        <h2>Actualités & Innovations</h2>
+      </div>
+
+      <h3 id="inventions"><span class="emoji">🔬</span>Inventions récentes</h3>
+      <div class="actu-grid reveal">
+        <div class="actu-card">
+          <div class="actu-date"><span class="day">2024</span>Mai</div>
+          <div class="actu-body">
+            <div class="actu-title">AlphaFold 3 — DeepMind</div>
+            <div class="actu-desc">Extension du modèle aux interactions protéines–ADN–ARN–petites molécules. Révolutionne la conception de médicaments et l'étude des interactions moléculaires.</div>
+            <span class="actu-tag">IA · Structure</span>
+          </div>
+        </div>
+        <div class="actu-card">
+          <div class="actu-date"><span class="day">2024</span>Jan</div>
+          <div class="actu-body">
+            <div class="actu-title">Séquençage long-read Oxford Nanopore</div>
+            <div class="actu-desc">Les nouvelles puces R10.4.1 permettent une précision > 99,9 % en lecture longue, ouvrant la voie à des assemblages de génomes complets à faible coût.</div>
+            <span class="actu-tag">Séquençage · NGS</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="decouvertes"><span class="emoji">🧬</span>Découvertes majeures</h3>
+      <div class="actu-grid reveal">
+        <div class="actu-card">
+          <div class="actu-date"><span class="day">2023</span>Nov</div>
+          <div class="actu-body">
+            <div class="actu-title">Génome « dark matter » décrypté</div>
+            <div class="actu-desc">Des chercheurs ont caractérisé des régions non-codantes du génome humain jusqu'ici incomprises, révélant de nouveaux mécanismes de régulation génique.</div>
+            <span class="actu-tag">Génomique · Épigénétique</span>
+          </div>
+        </div>
+        <div class="actu-card">
+          <div class="actu-date"><span class="day">2024</span>Mar</div>
+          <div class="actu-body">
+            <div class="actu-title">Multiomics & Cancer</div>
+            <div class="actu-desc">Intégration de données génomiques, transcriptomiques et protéomiques permettant d'identifier de nouveaux biomarqueurs pour la détection précoce de cancers.</div>
+            <span class="actu-tag">Cancer · Multi-omics</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="creations"><span class="emoji">💡</span>Créations & Algorithmes</h3>
+      <div class="actu-grid reveal">
+        <div class="actu-card">
+          <div class="actu-date"><span class="day">2024</span>Fév</div>
+          <div class="actu-body">
+            <div class="actu-title">Evo — Arc Institute</div>
+            <div class="actu-desc">Premier grand modèle de langage entraîné sur 2,7 millions de génomes bactériens et viraux. Capable de générer des séquences d'ADN fonctionnelles de nova.</div>
+            <span class="actu-tag">LLM · Génomique</span>
+          </div>
+        </div>
+        <div class="actu-card">
+          <div class="actu-date"><span class="day">2023</span>Sep</div>
+          <div class="actu-body">
+            <div class="actu-title">Pangenome Reference Graph</div>
+            <div class="actu-desc">Nouveau standard de référence génomique humaine basé sur 47 génomes individuels, plus représentatif que la référence linéaire précédente (GRCh38).</div>
+            <span class="actu-tag">Référence · Génomique</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BIBLIOGRAPHIE ───────────────────────────────────── -->
+    <section id="biblio">
+      <div class="sec-head reveal">
+        <div class="sec-icon"><ion-icon name="book-outline"></ion-icon></div>
+        <h2>Bibliographie</h2>
+      </div>
+
+      <ul class="biblio-list reveal">
+        <li>NCBI — <em>GenBank : base de données de séquences nucléotidiques</em> — <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank">ncbi.nlm.nih.gov/genbank</a></li>
+        <li>National Human Genome Research Institute — <em>Human Genome Project</em> — <a href="https://www.genome.gov/human-genome-project" target="_blank">genome.gov</a></li>
+        <li>Jumper J. et al. — <em>Highly accurate protein structure prediction with AlphaFold</em> — <a href="https://www.nature.com/articles/s41586-021-03819-2" target="_blank">Nature, 2021</a></li>
+        <li>UniProt Consortium — <em>UniProt: the Universal Protein Resource</em> — <a href="https://www.uniprot.org/" target="_blank">uniprot.org</a></li>
+        <li>RCSB — <em>Protein Data Bank</em> — <a href="https://www.rcsb.org/" target="_blank">rcsb.org</a></li>
+        <li>BLAST — <em>Basic Local Alignment Search Tool</em> — <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" target="_blank">NCBI BLAST</a></li>
+        <li>Oxford Academic — <em>Bioinformatics Journal</em> — <a href="https://academic.oup.com/bioinformatics" target="_blank">academic.oup.com/bioinformatics</a></li>
+        <li>NHGRI — <em>Genomics and Medicine</em> — <a href="https://www.genome.gov/health/Genomics-and-Medicine" target="_blank">genome.gov/health</a></li>
+        <li>Abramson J. et al. — <em>Accurate structure prediction of biomolecular interactions with AlphaFold 3</em> — <a href="https://www.nature.com/articles/s41586-024-07487-w" target="_blank">Nature, 2024</a></li>
+        <li>Liao W-W. et al. — <em>A draft human pangenome reference</em> — <a href="https://www.nature.com/articles/s41586-023-05896-x" target="_blank">Nature, 2023</a></li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // ── DARK MODE ────────────────────────────────────────────
+  const btn  = document.getElementById('darkToggle');
+  const icon = document.getElementById('darkIcon');
+  const body = document.body;
+  if (localStorage.getItem('dm') === '1') {
+    body.classList.add('dark');
+    icon.setAttribute('name', 'sunny-outline');
+  }
+  btn.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    const isDark = body.classList.contains('dark');
+    icon.setAttribute('name', isDark ? 'sunny-outline' : 'moon-outline');
+    localStorage.setItem('dm', isDark ? '1' : '0');
+  });
+
+  // ── SCROLL REVEAL ────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: .12 });
+
+  document.querySelectorAll('.reveal, .t-item').forEach(el => obs.observe(el));
+
+  // ── ACTIVE NAV ───────────────────────────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  const links    = document.querySelectorAll('aside nav a');
+
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`aside nav a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => navObs.observe(s));
+
+  // ── SUBMENU TOGGLE ───────────────────────────────────────
+  document.querySelectorAll('.has-sub').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const sub = document.getElementById('sub-actu');
+      sub.classList.toggle('open');
+      const tgt = document.querySelector(a.getAttribute('href'));
+      if (tgt) tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── SMOOTH SCROLL ────────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    if (!a.classList.contains('has-sub')) {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const tgt = document.querySelector(a.getAttribute('href'));
+        if (tgt) tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  });
+
+  // ── SEARCH HIGHLIGHT ─────────────────────────────────────
+  document.getElementById('searchInput').addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('main section').forEach(sec => {
+      sec.style.opacity = q === '' || sec.textContent.toLowerCase().includes(q) ? '1' : '0.25';
+      sec.style.transition = 'opacity .3s';
+    });
+  });
+</script>
 </body>
 </html>
