@@ -3,886 +3,599 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio de Melain GBAGUIDI" />
-  <meta name="keywords" content="Melain, GBAGUIDI, Portfolio, BTS SIO, Etudiant en BTS SIO, Etudiant developpement web, Etudiant en informatique, developpement fullstack, Paris, France, Benin, Alternance informatique, alternance developpement web, chef de projet informatique, expert data analyste, licence professionnelle informatique, bachelor informatique" />
-
+  <meta name="description" content="Portfolio de Melain GBAGUIDI — Étudiant BTS SIO SLAM, développeur web full-stack." />
+  <meta name="keywords" content="Melain, GBAGUIDI, Portfolio, BTS SIO, développement web, fullstack, Paris, Alternance" />
   <title>Melain GBAGUIDI | Portfolio</title>
-    
   <link rel="icon" href="Photo/logo_mg.jpg" type="image/x-icon" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;1,7..72,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="/assets/css/style.css">
+
 </head>
-
 <body>
-  <header>
-    <a href="#home" class="logo">Melain <span>GBAGUIDI</span></a>
 
-    <!-- Burger menu (Ionicons) -->
-    <ion-icon name="grid-outline" id="menu-icon" aria-label="Ouvrir le menu" role="button"></ion-icon>
+<div class="stars-wrap" id="starsWrap"></div>
 
-    <nav class="navbar" aria-label="Navigation principale">
-      <ul>
-        <li><a href="#home">Accueil</a></li>
-        <li><a href="#moi">Profil</a></li>
-        <li><a href="#Formation">Formations</a></li>
-        <li><a href="#competences">Compétences</a></li>
-        <li><a href="#projet">Projets</a></li>
 
-        <li>
-          <a href="btssio.html">BTS SIO</a>
-          <ul>
-            <li><a href="components/btssio.html">Veille technologique</a></li>
-            <li>
-              <a href="https://institutionsaintaspais.fr/formations/bts-services-informatiques-aux-organisations-option-slam-et-sisr/"
-                 target="_blank" rel="noopener noreferrer">
-                Saint-Aspais
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="bx bx-moon" id="darkMode-icon" aria-label="Activer le mode sombre" role="button"></div>
-  </header>
-
-  <section class="home" id="home">
-    <div class="star"></div>
-
-    <div class="home-content">
-      <h1 class="animate-me left">Salut ! c'est <span>Melain</span></h1>
-      <div class="typed-text" id="typed-text"></div>
-
-      <p class="dynamic-element">
-        Actuellement, étudiant en 2ème année
-        de BTS Services Informatiques aux Organisations
-        (SIO), spécialisé dans le développement
-        web et applications.
-      </p>
-
-      <div class="rsx">
-        <a href="https://www.linkedin.com/in/melain-gbaguidi-14b15a300"
-           class="dynamic-element" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-
-        <a href="https://github.com/MELAINGB"
-           class="dynamic-element" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <ion-icon name="logo-github"></ion-icon>
-        </a>
-
-        <a href="mailto:melaingb@gmail.com" class="dynamic-element" aria-label="Email">
-          <ion-icon name="mail-unread"></ion-icon>
-        </a>
-      </div>
-
-      <div class="btn-block dynamic-element">
-        <a href="assets/Fichiers/CV Mahouton GBAGUIDI.pdf" class="btn" target="_blank" download>Mon CV</a>
-        <a href="#contact" class="btn">Contact</a>
+<header>
+  <a href="#home" class="logo">Melain <span>GBAGUIDI</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#home">Accueil</a>
+    <a href="#moi">Profil</a>
+    <a href="#Formation">Formations</a>
+    <a href="#competences">Compétences</a>
+    <a href="#projet">Projets</a>
+    <div class="nav-drop">
+      <a href="btssio.html">BTS SIO</a>
+      <div class="drop-menu">
+        <a href="components/btssio.html">Veille technologique</a>
+        <a href="https://institutionsaintaspais.fr/formations/bts-services-informatiques-aux-organisations-option-slam-et-sisr/" target="_blank" rel="noopener">Saint-Aspais</a>
       </div>
     </div>
+  </nav>
+  <button id="dark-btn" title="Mode clair/sombre"><ion-icon name="moon-outline" id="dark-icon"></ion-icon></button>
+  <button id="burger" aria-label="Menu"><ion-icon name="grid-outline"></ion-icon></button>
+</header>
 
-    <div class="home-img">
-      <img src="Photo/images.png" alt="Photo de profil de Melain GBAGUIDI" />
-    </div>
-  </section>
-
-  <section class="moi" id="moi">
-    <div class="moi-img" id="moi-img">
-      <img src="Photo/images.png" alt="Photo de profil de Melain GBAGUIDI" />
-    </div>
-
-    <div class="moi-content">
-      <h2 class="animate-me right">A propos de <span>moi</span></h2>
-
-      <p class="dynamic-element">
-        Je suis étudiant au Campus Saint-Aspais de Melun (77) en 2ème année de
-        <a href="assets/Fichiers/BTS_ServicesInformatiquesOrganisations.pdf"
-           title="Accédez au référentiel du BTS" target="_blank" download>
-          Services Informatiques aux Organisations
-        </a>
-        (SIO), spécialité Solutions Logicielles et Applications Metiers (SLAM).
-        J’ai toujours eu une appétence pour l’informatique et une curiosité pour les nouvelles
-        technologies. C’est tout naturellement que je me suis tourné vers cette formation,
-        après avoir obtenu mon BAC Général Scientifique - Mention Bien en 2023.
-      </p>
-    </div>
-  </section>
-
-  <section class="projet_pro">
-    <h2 class="heading animate-me left">Projet professionnel</h2>
-
-    <p class="pro">
-      Professionnellement, je souhaite m'orienter vers le métier
-      <span class="highlight">« CHEF DE PROJET INFORMATIQUE »</span>.
-      Après l'obtention de mon <span class="highlight">BTS SIO - BAC+2</span>,
-      je souhaiterais poursuivre mon cursus en suivant la formation en
-      <span class="highlight">Licence professionnelle / Bachelor - BAC+3</span>.
-      Par la suite mon objectif est de continuer vers le diplôme d'
-      <span class="highlight">EXPERT DATA ANALYSTE - BAC+5</span>.
+<section id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow reveal">Étudiant BTS SIO · SLAM</p>
+    <h1 class="hero-title reveal">Salut,<br>c'est <span>Melain</span><br><em>GBAGUIDI</em></h1>
+    <div class="typed-wrap reveal"><span id="typed"></span></div>
+    <p class="hero-desc reveal">
+      Actuellement en 2ème année de BTS SIO option SLAM,
+      passionné par le développement web et les nouvelles technologies.
     </p>
+    <div class="hero-socials reveal">
+      <a href="https://www.linkedin.com/in/melain-gbaguidi-14b15a300" target="_blank" rel="noopener" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+      <a href="https://github.com/MELAINGB" target="_blank" rel="noopener" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a>
+      <a href="mailto:melaingb@gmail.com" aria-label="Email"><ion-icon name="mail-outline"></ion-icon></a>
+    </div>
+    <div class="hero-btns reveal">
+      <a href="assets/Fichiers/CV Mahouton GBAGUIDI.pdf" class="btn btn-primary" download>Mon CV</a>
+      <a href="#contact" class="btn btn-outline">Contact</a>
+    </div>
+  </div>
 
-    <br />
+  <div class="hero-visual reveal from-right">
+    <div class="hero-glow"></div>
+    <div class="hero-img-wrap">
+      <img src="Photo/images.png" alt="Melain GBAGUIDI" />
+    </div>
+    <span class="hero-tag t1">BTS SIO · SLAM</span>
+    <span class="hero-tag t2">↗ Open to alternance</span>
+  </div>
+</section>
 
-    <p class="pro">
-      Je souhaite continuer ma formation par le biais de l'apprentissage en alternance, ce qui me permettra :
+
+<section id="moi">
+  <div class="about-img-wrap reveal from-left">
+    <div class="about-img-inner">
+      <img src="Photo/images.png" alt="Melain GBAGUIDI" />
+    </div>
+    <div class="about-deco">
+      <span class="num">2</span>
+      <span class="lbl">ans de<br>BTS SIO</span>
+    </div>
+  </div>
+
+  <div class="about-text reveal">
+    <p class="section-label">À propos de moi</p>
+    <h2>Un développeur <span>curieux</span><br>et ambitieux</h2>
+    <p>
+      Je suis étudiant au Campus Saint-Aspais de Melun (77) en 2ème année de
+      <a href="assets/Fichiers/BTS_ServicesInformatiquesOrganisations.pdf" download target="_blank">Services Informatiques aux Organisations</a>
+      (SIO), spécialité Solutions Logicielles et Applications Métiers (SLAM).
     </p>
+    <p>
+      J'ai toujours eu une appétence pour l'informatique et une curiosité pour les nouvelles
+      technologies. C'est tout naturellement que je me suis tourné vers cette formation,
+      après avoir obtenu mon BAC Général Scientifique — Mention Bien en 2023.
+    </p>
+  </div>
+</section>
 
-    <br />
 
-    <ul>
-      <li>➤ D’acquérir une expérience professionnelle, et de pouvoir confronter mes connaissances théoriques aux réalités du terrain</li>
-      <li>➤ Créer et développer un réseau professionnel utile pour des opportunités ou des projets futurs, tout en bénéficiant d'une rémunération.</li>
-    </ul>
+<section id="projet-pro">
+  <p class="section-label reveal">Projet professionnel</p>
+  <h2 class="heading reveal">Mon <span>parcours</span> cible</h2>
 
-    <br />
-
-    <div class="btn-block dynamic-element">
-      <a href="assets/Fichiers/Lettre-de-motivation.pdf" class="btn" target="_blank" title="Ma lettre de motivation" download>Motivation</a>
+  <div class="pro-steps reveal">
+    <div class="pro-step">
+      <span class="pro-step-level">BAC+2</span>
+      <span class="pro-step-title">BTS SIO<br>SLAM</span>
     </div>
-  </section>
-
-  <section class="Formation" id="Formation">
-    <h2 class="heading animate-me left">Formations / Stages</h2>
-
-    <div class="timeline-items">
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Janvier 2026 - Février 2026</div>
-
-        <a onclick="afficherPopup('popup6')" title="Plus de détails">
-          <div class="timeline-content dynamic-element">
-            <h4>ELP Overture</h4>
-            <p>
-              Stagiaire en développement web full-stack <br />
-              Création de site de gestion et de commande en ligne de tôlerie
-            </p>
-          </div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Mai 2025 - Août 2025</div>
-
-        <a onclick="afficherPopup('popup5')" title="Plus de détails">
-          <div class="timeline-content dynamic-element">
-            <h4>Weblib</h4>
-            <p>
-              Stagiaire en développement web chez Weblib <br />
-              Projet de tests automatisés sur des applications web avec Robot-framework.
-            </p>
-          </div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2024/2026</div>
-
-        <a onclick="afficherPopup('popup1')" title="Plus de détails">
-          <div class="timeline-content dynamic-element">
-            <h4>Institution Saint-Aspais-Melun 77</h4>
-            <p>
-              Actuellement en 2ème année de BTS SIO option SLAM,
-              je suis en préparation de mon diplôme de BTS - BAC+2.
-            </p>
-          </div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Juin 2024 - Août 2024</div>
-
-        <a onclick="afficherPopup('popup2')" title="Plus de détails">
-          <div class="timeline-content dynamic-element">
-            <h4>CITECH Sarl</h4>
-            <p>
-              Stage/ Formation en développement web au Centre d'Innovation technologique,
-              J'ai acquis de véritables compétences en graphisme, PHP, MySQL.
-            </p>
-          </div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2023/2024</div>
-
-        <a onclick="afficherPopup('popup3')" title="Plus de détails">
-          <div class="timeline-content dynamic-element">
-            <h4>HECM - Calavi</h4>
-            <p>
-              Première année de Licence informatique spécialité Système Informatique et Logicielle (SIL)
-            </p>
-          </div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2023</div>
-
-        <a onclick="afficherPopup('popup4')" title="Plus de détails">
-          <div class="timeline-content dynamic-element">
-            <h4>CS Phiromce</h4>
-            <p>
-              Obtention de mon Baccalauréat Scientifique Série D avec une mention Bien
-            </p>
-          </div>
-        </a>
-      </div>
-
+    <span class="pro-arrow">→</span>
+    <div class="pro-step">
+      <span class="pro-step-level">BAC+3</span>
+      <span class="pro-step-title">Licence Pro /<br>Bachelor</span>
     </div>
-  </section>
+    <span class="pro-arrow">→</span>
+    <div class="pro-step">
+      <span class="pro-step-level">BAC+5</span>
+      <span class="pro-step-title">Expert<br>Data Analyste</span>
+    </div>
+    <span class="pro-arrow">→</span>
+    <div class="pro-step" style="border-color:rgba(0,201,255,.3);background:rgba(0,201,255,.05)">
+      <span class="pro-step-level" style="font-size:.85rem;">🎯</span>
+      <span class="pro-step-title" style="color:var(--accent)">Chef de Projet<br>Informatique</span>
+    </div>
+  </div>
 
-  <section class="portfolio" id="competences">
-    <h2 class="heading animate-me left">Mes compétences</h2>
+  <p class="pro-desc reveal">
+    Je souhaite continuer ma formation par le biais de l'apprentissage en alternance, ce qui me permettra :
+  </p>
 
-    <h3>Mes certifications obtenues 📜</h3>
+  <div class="pro-perks reveal">
+    <div class="perk"><ion-icon name="briefcase-outline"></ion-icon>Acquérir une expérience professionnelle et confronter mes connaissances théoriques aux réalités du terrain.</div>
+    <div class="perk"><ion-icon name="people-outline"></ion-icon>Créer et développer un réseau professionnel tout en bénéficiant d'une rémunération.</div>
+  </div>
 
-    <div class="cards">
+  <div class="reveal">
+    <a href="assets/Fichiers/Lettre-de-motivation.pdf" class="btn btn-outline" download target="_blank">Lettre de motivation</a>
+  </div>
+</section>
 
-      <div class="card">
-        <img src="Photo/certificat_cybersec.png" alt="Certification Cisco - Introduction à la cybersécurité" />
-        <h5>Certification CISCO - Intro à la cybersécurité</h5>
-        <div class="card_btn animate-me">
-          <button class="btn" type="button" id="showImage1">Détails</button>
+
+<section id="Formation">
+  <div class="inner">
+    <p class="section-label reveal">Parcours</p>
+    <h2 class="heading reveal">Formations & <span>Stages</span></h2>
+
+    <div class="tl">
+      <div class="tl-item reveal" onclick="openPopup('popup6')">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Janvier 2026 — Février 2026</div>
+        <div class="tl-card">
+          <h4>ELP Overture</h4>
+          <p>Stagiaire en développement web full-stack — Création d'une plateforme de gestion et commande de tôlerie en ligne.</p>
+          <span class="tl-more">Voir détails →</span>
         </div>
       </div>
 
-      <div class="card">
-        <img src="Photo/NDG_Linux.png" alt="Certification Linux Unhatched - Cisco Networking Academy" />
-        <h5>Certification Linux unhatched / Cisco Networking Academy</h5>
-        <div class="card_btn animate-me">
-          <button class="btn" type="button" id="showImage2">Détails</button>
+      <div class="tl-item reveal" onclick="openPopup('popup5')">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Mai 2025 — Août 2025</div>
+        <div class="tl-card">
+          <h4>Weblib — Paris 16ème</h4>
+          <p>Stage en développement web — Tests automatisés d'applications web avec Robot Framework.</p>
+          <span class="tl-more">Voir détails →</span>
         </div>
       </div>
 
-      <div class="card">
-        <img src="Photo/mooc_anssi.png" alt="Attestation MOOC ANSSI - SecNumAcadémie" />
-        <h5>Certification du MOOC de l'ANSSI (cybersécurité)</h5>
-        <div class="card_btn animate-me">
-          <button class="btn" type="button" id="showImage3">Détails</button>
+      <div class="tl-item reveal" onclick="openPopup('popup1')">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2024 — 2026</div>
+        <div class="tl-card">
+          <h4>Institution Saint-Aspais — Melun (77)</h4>
+          <p>BTS SIO option SLAM — 2ème année en cours, préparation du diplôme BAC+2.</p>
+          <span class="tl-more">Voir détails →</span>
         </div>
       </div>
 
-      <div class="card">
-        <img src="Photo/icdl_zm.png" alt="Certification ICDL Africa - Essentiel ordinateur et web" />
-        <h5>Certification ICDL Africa - Essentiel sur l'ordinateur et le web</h5>
-        <div class="card_btn animate-me">
-          <button class="btn" type="button" id="showImage4">Détails</button>
+      <div class="tl-item reveal" onclick="openPopup('popup2')">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Juin 2024 — Août 2024</div>
+        <div class="tl-card">
+          <h4>CITECH Sarl — Bénin</h4>
+          <p>Stage en développement web — Compétences acquises en graphisme, PHP et MySQL.</p>
+          <span class="tl-more">Voir détails →</span>
         </div>
       </div>
 
-      <div class="card">
-        <img src="Photo/certificatJS.png" alt="Certification Cisco - JavaScript Essentials 1" />
-        <h5>Certification CISCO - Essentiel 1 en JavaScript</h5>
-        <div class="card_btn animate-me">
-          <button class="btn" type="button" id="showImage5">Détails</button>
+      <div class="tl-item reveal" onclick="openPopup('popup3')">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023 — 2024</div>
+        <div class="tl-card">
+          <h4>HECM — Abomey-Calavi</h4>
+          <p>1ère année de Licence informatique, spécialité Système Informatique et Logicielle (SIL).</p>
+          <span class="tl-more">Voir détails →</span>
         </div>
       </div>
 
-      <!-- Fullscreen (certifications) -->
-      <div class="fullscreen-image" id="fullscreenImage1">
-        <button class="close-button" type="button" id="closeButton1" aria-label="Fermer">
-          <ion-icon name="close"></ion-icon>
-        </button>
-        <img src="Photo/certificat_cybersec.png" alt="Certification Cisco - Introduction à la cybersécurité" />
-        <p class="image-caption">
-          Certification de Cisco Networking Academy, Introduction à la cybersécurité <br />
-          <i>Obtenue en BTS 1 SIO</i>
-        </p>
+      <div class="tl-item reveal" onclick="openPopup('popup4')">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023</div>
+        <div class="tl-card">
+          <h4>CS Phiromce — Bénin</h4>
+          <p>Baccalauréat Scientifique Série D — Mention Bien.</p>
+          <span class="tl-more">Voir détails →</span>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="fullscreen-image" id="fullscreenImage2">
-        <button class="close-button" type="button" id="closeButton2" aria-label="Fermer">
-          <ion-icon name="close"></ion-icon>
-        </button>
-        <img src="Photo/NDG_Linux.png" alt="Certification Linux Unhatched - Cisco Networking Academy" />
-        <p class="image-caption">
-          Certification Linux unhatched de Cisco Networking Academy <br />
-          <i>Obtenue en BTS 1 SIO</i>
-        </p>
-      </div>
 
-      <div class="fullscreen-image" id="fullscreenImage3">
-        <button class="close-button" type="button" id="closeButton3" aria-label="Fermer">
-          <ion-icon name="close"></ion-icon>
-        </button>
-        <img src="Photo/mooc_anssi.png" alt="Attestation MOOC ANSSI - SecNumAcadémie" />
-        <p class="image-caption">
-          Attestation du MOOC de l'ANSSI de SecNumAcadémie <br />
-          <i>Obtenue en BTS 1 SIO</i>
-        </p>
-      </div>
+<section id="competences">
+  <div class="inner">
+    <p class="section-label reveal">Savoir-faire</p>
+    <h2 class="heading reveal">Mes <span>compétences</span></h2>
 
-      <div class="fullscreen-image" id="fullscreenImage4">
-        <button class="close-button" type="button" id="closeButton4" aria-label="Fermer">
-          <ion-icon name="close"></ion-icon>
-        </button>
-        <img src="Photo/icdl.png" alt="Certification ICDL Africa - Essentiel ordinateur et web" />
-        <p class="image-caption">
-          Certification ICDL Africa - Essentiel ordinateur et web <br />
-          <i>Obtenue en 1ère année de licence SIL à HECM</i>
-        </p>
-      </div>
-
-      <div class="fullscreen-image" id="fullscreenImage5">
-        <button class="close-button" type="button" id="closeButton5" aria-label="Fermer">
-          <ion-icon name="close"></ion-icon>
-        </button>
-        <img src="Photo/certificatJS.png" alt="Certification Cisco - JavaScript Essentials 1" />
-        <p class="image-caption">
-          Certification CISCO Networking Academy - JavaScript Essentials 1 <br />
-          <i>Obtenue en BTS 1 SIO option SLAM</i>
-        </p>
+    <!-- Certifications -->
+    <div class="skills-block">
+      <h3 class="reveal">Certifications obtenues 📜</h3>
+      <div class="cert-grid reveal">
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="Photo/certificat_cybersec.png" alt="Cisco Cybersécurité"></div>
+          <div class="cert-info"><h5>Cisco — Introduction à la cybersécurité</h5><button class="cert-btn" onclick="openFS('Photo/certificat_cybersec.png','Cisco Networking Academy — Intro cybersécurité · BTS 1 SIO')">Voir →</button></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="Photo/NDG_Linux.png" alt="Linux Unhatched"></div>
+          <div class="cert-info"><h5>Cisco — Linux Unhatched</h5><button class="cert-btn" onclick="openFS('Photo/NDG_Linux.png','Linux Unhatched · Cisco Networking Academy · BTS 1 SIO')">Voir →</button></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="Photo/mooc_anssi.png" alt="MOOC ANSSI"></div>
+          <div class="cert-info"><h5>MOOC ANSSI — SecNumAcadémie</h5><button class="cert-btn" onclick="openFS('Photo/mooc_anssi.png','Attestation MOOC ANSSI SecNumAcadémie · BTS 1 SIO')">Voir →</button></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="Photo/icdl_zm.png" alt="ICDL Africa"></div>
+          <div class="cert-info"><h5>ICDL Africa — Essentiel ordinateur & web</h5><button class="cert-btn" onclick="openFS('Photo/icdl.png','Certification ICDL Africa · Licence SIL HECM')">Voir →</button></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-thumb"><img src="Photo/certificatJS.png" alt="JS Essentials Cisco"></div>
+          <div class="cert-info"><h5>Cisco — JavaScript Essentials 1</h5><button class="cert-btn" onclick="openFS('Photo/certificatJS.png','Cisco Networking Academy — JavaScript Essentials 1 · BTS 1 SIO')">Voir →</button></div>
+        </div>
       </div>
     </div>
 
     <!-- Langages -->
-    <div class="langages">
-      <h3>Langages de Programmation Pratiqués 💻</h3>
-      <p class="transit">
-        Voici les langages de programmation que j'utilise pour le développement de mes projets.
-      </p>
-
-      <div class="carousel-buttons">
-        <ion-icon class="carousel-button" id="prevButton1" name="chevron-back-circle-outline"></ion-icon>
-
-        <div class="carousel">
-          <div class="carousel-track" id="carouselTrack1">
-
-            <div class="carousel-item">
-              <img src="Photo/html.png" alt="HTML" />
-              <p><strong>HTML</strong><br />Langage de balisage utilisé pour la création de pages web</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/CSS.png" alt="CSS" />
-              <p><strong>CSS</strong><br />Langage de style utilisé pour la mise en forme des pages web</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/js.png" alt="JavaScript" />
-              <p><strong>JavaScript</strong><br />Langage utilisé pour rendre les pages web interactives</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/php.png" alt="PHP" />
-              <p><strong>PHP</strong><br />Langage côté serveur pour produire des pages web dynamiques</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/symfony.png" alt="Symfony" />
-              <p><strong>Symfony</strong><br />Framework PHP pour développer des applications robustes</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/sql.png" alt="SQL" />
-              <p><strong>SQL</strong><br />Langage de requête pour interagir avec les bases de données</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/angular.png" alt="Angular" />
-              <p><strong>Angular</strong><br />Framework TypeScript pour créer des applications web dynamiques</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/C.png" alt="Langage C" />
-              <p><strong>C</strong><br />Langage de programmation pour le développement de logiciels</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/python.png" alt="Python" />
-              <p><strong>Python</strong><br />Dev, automatisation et analyse de données</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/robot.png" alt="Robot Framework" />
-              <p><strong>Robot Framework</strong><br />Framework d’automatisation de tests</p>
-            </div>
-
+    <div class="skills-block">
+      <h3 class="reveal">Langages de programmation 💻</h3>
+      <div class="carousel-wrap reveal">
+        <button class="car-btn" id="prev1"><ion-icon name="chevron-back-outline"></ion-icon></button>
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="track1">
+            <div class="car-item"><img src="Photo/html.png" alt="HTML"><strong>HTML</strong><p>Balisage & structure web</p></div>
+            <div class="car-item"><img src="Photo/CSS.png" alt="CSS"><strong>CSS</strong><p>Style & mise en forme</p></div>
+            <div class="car-item"><img src="Photo/js.png" alt="JavaScript"><strong>JavaScript</strong><p>Interactivité web</p></div>
+            <div class="car-item"><img src="Photo/php.png" alt="PHP"><strong>PHP</strong><p>Serveur & pages dynamiques</p></div>
+            <div class="car-item"><img src="Photo/symfony.png" alt="Symfony"><strong>Symfony</strong><p>Framework PHP robuste</p></div>
+            <div class="car-item"><img src="Photo/sql.png" alt="SQL"><strong>SQL</strong><p>Bases de données</p></div>
+            <div class="car-item"><img src="Photo/angular.png" alt="Angular"><strong>Angular</strong><p>Framework TypeScript</p></div>
+            <div class="car-item"><img src="Photo/C.png" alt="C"><strong>C</strong><p>Programmation système</p></div>
+            <div class="car-item"><img src="Photo/python.png" alt="Python"><strong>Python</strong><p>Automatisation & data</p></div>
+            <div class="car-item"><img src="Photo/robot.png" alt="Robot Framework"><strong>Robot FW</strong><p>Tests automatisés</p></div>
           </div>
         </div>
-
-        <ion-icon class="carousel-button" id="nextButton1" name="chevron-forward-circle-outline"></ion-icon>
+        <button class="car-btn" id="next1"><ion-icon name="chevron-forward-outline"></ion-icon></button>
       </div>
     </div>
 
     <!-- Outils -->
-    <div>
-      <h3>Outils/Logiciels utilisés 👨‍💻</h3>
-      <p class="transit">Pour la réalisation de mes projets, j'utilise les outils suivants :</p>
-
-      <div class="carousel-buttons">
-        <ion-icon class="carousel-button" id="prevButton2" name="chevron-back-circle-outline"></ion-icon>
-
-        <div class="carousel">
-          <div class="carousel-track" id="carouselTrack2">
-
-            <div class="carousel-item">
-              <img src="Photo/vscode.png" alt="VS Code" />
-              <p><strong>VS Code</strong><br />Éditeur de code pour le développement</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/xamp.png" alt="XAMPP" />
-              <p><strong>XAMPP</strong><br />Environnement serveur local (Apache, MySQL…)</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/mysql.png" alt="MySQL" />
-              <p><strong>MySQL</strong><br />SGBD utilisé pour le développement web</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/figma.jpg" alt="Figma" />
-              <p><strong>Figma</strong><br />Conception UI et prototypage</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/github.png" alt="GitHub et GitLab" />
-              <p><strong>GitHub / GitLab</strong><br />Versioning et collaboration</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/cisco.png" alt="Cisco Packet Tracer" />
-              <p><strong>Packet Tracer</strong><br />Simulation réseau</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/putty.png" alt="PuTTY" />
-              <p><strong>PuTTY</strong><br />Connexion à distance (SSH)</p>
-            </div>
-
-            <div class="carousel-item">
-              <img src="Photo/linux.png" alt="Linux" />
-              <p><strong>Linux</strong><br />Système open-source</p>
-            </div>
-
+    <div class="skills-block">
+      <h3 class="reveal">Outils & Logiciels 👨‍💻</h3>
+      <div class="carousel-wrap reveal">
+        <button class="car-btn" id="prev2"><ion-icon name="chevron-back-outline"></ion-icon></button>
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="track2">
+            <div class="car-item"><img src="Photo/vscode.png" alt="VS Code"><strong>VS Code</strong><p>Éditeur principal</p></div>
+            <div class="car-item"><img src="Photo/xamp.png" alt="XAMPP"><strong>XAMPP</strong><p>Serveur local</p></div>
+            <div class="car-item"><img src="Photo/mysql.png" alt="MySQL"><strong>MySQL</strong><p>SGBD web</p></div>
+            <div class="car-item"><img src="Photo/figma.jpg" alt="Figma"><strong>Figma</strong><p>UI & prototypage</p></div>
+            <div class="car-item"><img src="Photo/github.png" alt="GitHub"><strong>GitHub / GitLab</strong><p>Versioning & CI</p></div>
+            <div class="car-item"><img src="Photo/cisco.png" alt="Packet Tracer"><strong>Packet Tracer</strong><p>Simulation réseau</p></div>
+            <div class="car-item"><img src="Photo/putty.png" alt="PuTTY"><strong>PuTTY</strong><p>Connexion SSH</p></div>
+            <div class="car-item"><img src="Photo/linux.png" alt="Linux"><strong>Linux</strong><p>Système open-source</p></div>
           </div>
         </div>
-
-        <ion-icon class="carousel-button" id="nextButton2" name="chevron-forward-circle-outline"></ion-icon>
+        <button class="car-btn" id="next2"><ion-icon name="chevron-forward-outline"></ion-icon></button>
       </div>
     </div>
 
     <!-- Savoir-faire -->
-    <div>
-      <h3>Savoir faire & Documentation pratique 📜</h3>
-
-      <div class="options">
-        <div class="option-card">
-          Installation de systèmes (Windows / Linux)
-          <ion-icon name="chevron-down-outline"></ion-icon>
+    <div class="skills-block">
+      <h3 class="reveal">Savoir-faire pratique 📜</h3>
+      <div class="accordion reveal">
+        <div class="acc-item">
+          <button class="acc-head">Installation de systèmes (Windows / Linux)<ion-icon name="chevron-down-outline"></ion-icon></button>
+          <div class="acc-body"><p>Installation, mise à jour et configuration système. Contactez-moi si besoin.</p><p><a href="https://www.it-connect.fr/comment-passer-de-windows-a-linux-conseils/" target="_blank">Documentation →</a></p></div>
         </div>
-        <div class="panel">
-          <p>Installation, mise à jour et configuration. N'hésitez pas à me contacter si besoin.</p>
-          <p>
-            Consulter la documantation 👉
-            <a target="_blank"  rel="noopener noreferrer" href="https://www.it-connect.fr/comment-passer-de-windows-a-linux-conseils/">
-               <ion-icon name="link-outline" style="float:right;"></ion-icon>
-            </a>
-          </p>
+        <div class="acc-item">
+          <button class="acc-head">Documentation Linux — outil pratique terminal<ion-icon name="chevron-down-outline"></ion-icon></button>
+          <div class="acc-body"><p>Une documentation claire pour la ligne de commande Linux.</p><p><a href="assets/Fichiers/cmdLinux.pdf" download target="_blank">Télécharger le PDF →</a></p></div>
         </div>
-
-        <div class="option-card">
-          Documentation Linux : outil pratique terminal
-          <ion-icon name="chevron-down-outline"></ion-icon>
+        <div class="acc-item">
+          <button class="acc-head">Mise en place de tests automatiques<ion-icon name="chevron-down-outline"></ion-icon></button>
+          <div class="acc-body"><p>Tests automatisés pour simuler les actions utilisateur et garantir le bon fonctionnement.</p><p><a href="https://robotframework.org" target="_blank">Robot Framework →</a></p></div>
         </div>
-        <div class="panel">
-          <p>Une documentation claire pour la ligne de commande Linux.</p>
-          <p>
-            Télécharger ici 👉
-            <a href="assets/Fichiers/cmdLinux.pdf" target="_blank" rel="noopener noreferrer">
-              <ion-icon name="download-outline" style="float:right;"></ion-icon>
-            </a>
-          </p>
-        </div>
-
-        <div class="option-card">
-          Mise en place des tests automatiques
-          <ion-icon name="chevron-down-outline"></ion-icon>
-        </div>
-        <div class="panel">
-          <p>Tests automatisés (simuler les actions utilisateur) pour garantir le bon fonctionnement.</p>
-          <p>
-            Visiter 👉
-            <a href="https://robotframework.org" target="_blank" rel="noopener noreferrer">
-              <ion-icon name="link-outline" style="float:right;"></ion-icon>
-            </a>
-          </p>
-        </div>
-
-        <div class="option-card">
-          Conception et développement de site / application
-          <ion-icon name="chevron-down-outline"></ion-icon>
-        </div>
-        <div class="panel">
-          <p>Développement, maintenance, collaboration… Contacte-moi si besoin.</p>
-          <p>
-            Me contacter 👉
-            <a href="#contact">
-              <ion-icon name="link-outline" style="float:right;"></ion-icon>
-            </a>
-          </p>
+        <div class="acc-item">
+          <button class="acc-head">Conception et développement de site / application<ion-icon name="chevron-down-outline"></ion-icon></button>
+          <div class="acc-body"><p>Développement, maintenance, collaboration. Contactez-moi pour en discuter.</p><p><a href="#contact">Me contacter →</a></p></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="projet" id="projet">
-    <h2 class="heading animate-me left">Mes projets</h2>
 
-    <div class="cards">
-      <div class="card">
-        <img class="animate-me left" src="Photo/Portfolio.png" alt="Projet Portfolio" />
-        <h5 class="option-card">
-           Portfolio <i>Site internet actuel</i>
-          <ion-icon name="chevron-down-outline" style="float:right;"></ion-icon>
-        </h5>
-        <div class="panel">
-          <h4>Projet BTS1</h4>
-          <p>Mon portfolio retrace mon parcours, mes compétences, mes services, etc.</p>
-          <div class="card_btn animate-me">
-            <a onclick="afficherPopup('popup_p1')" title="En savoir plus" class="btn">Détails</a>
-          </div>
+<section id="projet">
+  <div class="inner">
+    <p class="section-label reveal">Réalisations</p>
+    <h2 class="heading reveal">Mes <span>projets</span></h2>
+
+    <div class="proj-grid">
+      <div class="proj-card reveal" onclick="openPopup('pp1')">
+        <div class="proj-thumb"><img src="Photo/Portfolio.png" alt="Portfolio"><div class="proj-thumb-overlay"></div></div>
+        <div class="proj-body">
+          <div class="proj-type">BTS 1 · Site internet</div>
+          <h4>Portfolio personnel</h4>
+          <p>Mon portfolio retrace mon parcours, mes compétences et mes projets.</p>
+          <div class="proj-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span></div>
+          <span class="proj-link">Voir détails <ion-icon name="arrow-forward-outline"></ion-icon></span>
         </div>
       </div>
 
-      <div class="card">
-        <img class="animate-me" src="Photo/GPEF.png" alt="Projet Gestion de présence scolaire" />
-        <h5 class="option-card">
-          Plate-forme de gestion de présence scolaire
-          <ion-icon name="chevron-down-outline" style="float:right;"></ion-icon>
-        </h5>
-        <div class="panel">
-          <h4>Projet de stage</h4>
-          <p>Suivi présence étudiants/formateurs, automatisé avec badge.</p>
-          <div class="card_btn animate-me">
-            <a onclick="afficherPopup('popup_p2')" title="En savoir plus" class="btn">Détails</a>
-          </div>
+      <div class="proj-card reveal" onclick="openPopup('pp2')">
+        <div class="proj-thumb"><img src="Photo/GPEF.png" alt="Gestion présence"><div class="proj-thumb-overlay"></div></div>
+        <div class="proj-body">
+          <div class="proj-type">Projet de stage</div>
+          <h4>Plateforme gestion de présence scolaire</h4>
+          <p>Suivi des présences étudiants/formateurs automatisé avec badge.</p>
+          <div class="proj-tech"><span class="tech-tag">PHP</span><span class="tech-tag">SQL</span><span class="tech-tag">HTML/CSS</span></div>
+          <span class="proj-link">Voir détails <ion-icon name="arrow-forward-outline"></ion-icon></span>
         </div>
       </div>
 
-      <div class="card">
-        <img class="animate-me right" src="Photo/GC.png" alt="Projet Application gestion de compte" />
-        <h5 class="option-card">
-          Plate-forme de gestion de compte utilisateur
-          <ion-icon name="chevron-down-outline" style="float:right;"></ion-icon>
-        </h5>
-        <div class="panel">
-          <h4>Projet personnel</h4>
+      <div class="proj-card reveal" onclick="openPopup('pp3')">
+        <div class="proj-thumb"><img src="Photo/GC.png" alt="Gestion compte"><div class="proj-thumb-overlay"></div></div>
+        <div class="proj-body">
+          <div class="proj-type">Projet personnel</div>
+          <h4>Plateforme gestion de compte utilisateur</h4>
           <p>Collecte de fonds à distance, historique de transactions, gestion de compte.</p>
-          <div class="card_btn animate-me">
-            <a onclick="afficherPopup('popup_p3')" title="En savoir plus" class="btn">Détails</a>
-          </div>
+          <div class="proj-tech"><span class="tech-tag">PHP</span><span class="tech-tag">SQL</span><span class="tech-tag">JS</span></div>
+          <span class="proj-link">Voir détails <ion-icon name="arrow-forward-outline"></ion-icon></span>
         </div>
       </div>
 
-      <div class="card">
-        <img class="animate-me" src="Photo/etafe.png" alt="Projet Plateforme de gestion de services" />
-        <h5 class="option-card">
-          Plate-forme de gestion de services & demandes 
-          <ion-icon name="chevron-down-outline" style="float:right;"></ion-icon>
-        </h5>
-        <div class="panel">
-          <h4>Projet personnel</h4>
+      <div class="proj-card reveal" onclick="openPopup('pp4')">
+        <div class="proj-thumb"><img src="Photo/etafe.png" alt="Gestion services"><div class="proj-thumb-overlay"></div></div>
+        <div class="proj-body">
+          <div class="proj-type">Projet personnel</div>
+          <h4>Plateforme gestion de services & demandes</h4>
           <p>Traitement des demandes en temps réel, automatisation, optimisation UX.</p>
-          <div class="card_btn animate-me">
-            <a onclick="afficherPopup('popup_p4')" title="En savoir plus" class="btn">Détails</a>
-          </div>
+          <div class="proj-tech"><span class="tech-tag">PHP</span><span class="tech-tag">AJAX</span><span class="tech-tag">SQL</span></div>
+          <span class="proj-link">Voir détails <ion-icon name="arrow-forward-outline"></ion-icon></span>
         </div>
       </div>
 
-       <div class="card">
-        <img class="animate-me" src="Photo/RestoCampus.png" alt="Resto Campus" />
-        <h5 class="option-card">
-          Plate-forme de reservation de plat (cantine scolaire)
-          <ion-icon name="chevron-down-outline" style="float:right;"></ion-icon>
-        </h5>
-        <div class="panel">
-          <h4>Projet BTS SIO 2</h4>
-          <p>Réservation des menus du jour à l'avance, gestion efficace de la proposition des menus.</p>
-          <div class="card_btn animate-me">
-            <a onclick="afficherPopup('popup_p5')" title="En savoir plus" class="btn">Détails</a>
-          </div>
+      <div class="proj-card reveal" onclick="openPopup('pp5')">
+        <div class="proj-thumb"><img src="Photo/RestoCampus.png" alt="Resto Campus"><div class="proj-thumb-overlay"></div></div>
+        <div class="proj-body">
+          <div class="proj-type">BTS SIO 2</div>
+          <h4>Resto Campus — Réservation cantine</h4>
+          <p>Réservation des menus à l'avance, gestion efficace de la cantine scolaire.</p>
+          <div class="proj-tech"><span class="tech-tag">PHP</span><span class="tech-tag">MVC</span><span class="tech-tag">AJAX</span></div>
+          <span class="proj-link">Voir détails <ion-icon name="arrow-forward-outline"></ion-icon></span>
         </div>
       </div>
 
-      <div class="card">
-        <img class="animate-me" src="Photo/Wakeboard.png" alt="Wakeboard" />
-        <h5 class="option-card">
-          Plate-forme de gestion de club sportif (Wakeboard)
-          <ion-icon name="chevron-down-outline" style="float:right;"></ion-icon>
-        </h5>
-        <div class="panel">
-          <h4>Projet BTS SIO 2</h4>
-          <p>Gestion de club sportif(Adhérents, coah et Admin), ici du wakeboard. Programmé des sessions, suivi d'evolution des joueurs. </p>
-          <div class="card_btn animate-me">
-            <a onclick="afficherPopup('popup_p6')" title="En savoir plus" class="btn">Détails</a>
-          </div>
+      <div class="proj-card reveal" onclick="openPopup('pp6')">
+        <div class="proj-thumb"><img src="Photo/Wakeboard.png" alt="Wakeboard"><div class="proj-thumb-overlay"></div></div>
+        <div class="proj-body">
+          <div class="proj-type">BTS SIO 2 · Binôme</div>
+          <h4>Club Sportif Wakeboard</h4>
+          <p>Gestion de club (adhérents, coaches, admin), programmation de sessions et suivi d'évolution.</p>
+          <div class="proj-tech"><span class="tech-tag">Symfony</span><span class="tech-tag">MVC</span><span class="tech-tag">JS</span></div>
+          <span class="proj-link">Voir détails <ion-icon name="arrow-forward-outline"></ion-icon></span>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- POPUPS FORMATIONS -->
-    <div id="popup1" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup1')">&times;</span>
-        <h1>Campus Saint-Aspais</h1><br />
-        <ul>
-          <li>BTS SIO Option SLAM</li>
-          <li>📍
-            <a href="https://maps.app.goo.gl/ZcVqesYBw3TMCQtK9"
-               target="_blank" rel="noopener noreferrer">
-              36 rue Saint-Barthélemy, CS20179 77000 Melun
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <div id="popup2" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup2')">&times;</span>
-        <h1>Stage CITECH</h1><br />
-        <ul>
-          <li><h4>Stage / Formation en développement web</h4></li>
-          <li><span>Compétences :</span> Développement web + graphisme (Photoshop)</li>
-          <li><span>Réalisation :</span> Application gestion de présence (PHP, SQL, HTML, CSS, JS)</li>
-          <li>📍
-            <a href="https://maps.app.goo.gl/3qcNXiTnqhF2cj1e9"
-               target="_blank" rel="noopener noreferrer">
-              Abomey-Calavi, Bénin
-            </a>
-          </li>
-          <li><a href="https://citechsarl.com" target="_blank" rel="noopener noreferrer">citechsarl.com</a></li>
-        </ul>
-      </div>
-    </div>
+<section id="contact">
+  <p class="section-label reveal">Parlons-nous</p>
+  <h2 class="heading reveal">Contactez <span>moi</span></h2>
 
-    <div id="popup3" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup3')">&times;</span>
-        <h1>HECM</h1><br />
-        <ul>
-          <li><h4>Licence informatique - SIL</h4></li>
-          <li>Description : formation de 3 ans en développement web…</li>
-          <li>📍
-            <a href="https://maps.app.goo.gl/kuKyUeSrc2TZNQQ17"
-               target="_blank" rel="noopener noreferrer">
-              Abomey-Calavi, Bénin
-            </a>
-          </li>
-          <li>Site internet :
-            <a href="https://www.hecm-afrique.net/" target="_blank" rel="noopener noreferrer">
-              hecm-afrique.net
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div id="popup4" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup4')">&times;</span>
-        <h1>CS PHIROMCE</h1><br />
-        <ul>
-          <li>Baccalauréat scientifique Série D</li>
-          <li>📍
-            <a href="https://maps.app.goo.gl/w2R2MUEV9zFN42P29"
-               target="_blank" rel="noopener noreferrer">
-              Abomey-Calavi, Bénin
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div id="popup5" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup5')">&times;</span>
-        <h1>Stage Weblib</h1><br />
-        <ul>
-          <li>Stage en entreprise de 3 mois en développement web</li>
-          <li><span>Compétences :</span> Robot Framework, GitLab, CI/CD, Confluence, Linux…</li>
-          <li><span>Réalisation :</span> Automatisation de tests de connexion sur points d’accès</li>
-          <li><span>Voir le: <a href="/assets/Fichiers/Melain_GBAGUIDI_rapport_de_stage_BTS1SIO_2025.pdf" target="_blank">rapport de stage</a></span></li>
-          <li>📍
-            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e67af0e1507b09:0xc80a8356b51709e3"
-               target="_blank" rel="noopener noreferrer">
-              16 Rue Auguste Vacquerie, Paris 75016
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div id="popup6" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup6')">&times;</span>
-        <h1>ELP Overture</h1><br />
-        <ul>
-          <li>Stage (5 semaines) - 2ème année BTS</li>
-          <li><span>Compétences :</span> Angular & Symfony</li>
-          <li><span>Réalisation :</span> Plateforme de commande de tôlerie en ligne + configurateur</li>
-          <li><span>Voir le: <a href="/assets/Fichiers/Melain_GBAGUIDI_rapport_de_stage_BTSSIO2_2025.pdf" target="_blank">rapport de stage</a></span></li>
-          <li>📍 1 Rue Clément Ader, Saint-Pierre-du-Perray</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- POPUPS PROJETS -->
-    <div id="popup_p1" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup_p1')">&times;</span>
-        <h1>Mon portfolio</h1><br />
-        <ul>
-          <li><span>Description :</span> Portfolio présentant parcours, compétences, etc.</li>
-          <li><span>Technos :</span> HTML, CSS, JavaScript</li>
-          <li><span>Durée :</span> Octobre 2024 - en cours</li>
-        </ul>
-        <button class="btn" type="button" title="À venir">Plus</button>
-      </div>
-    </div>
-
-    <div id="popup_p2" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup_p2')">&times;</span>
-        <h1>Gestion de présences</h1><br />
-        <ul>
-          <li><span>Description :</span> Suivi des présences via badge.</li>
-          <li><span>Technos :</span> HTML, CSS, JS, PHP, SQL</li>
-          <li><span>Durée :</span> 2 mois (en binôme)</li>
-        </ul>
-        <button class="btn" type="button" title="À venir">Plus</button>
-      </div>
-    </div>
-
-    <div id="popup_p3" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup_p3')">&times;</span>
-        <h1>Gestion de compte</h1><br />
-        <ul>
-          <li><span>Description :</span> Collecte de fonds + historique + gestion de compte.</li>
-          <li><span>Technos :</span> HTML, CSS, JS, PHP, SQL</li>
-          <li><span>Durée :</span> Septembre 2024 - en cours</li>
-        </ul>
-        <button class="btn" type="button" title="À venir">Plus</button>
-      </div>
-    </div>
-
-    <div id="popup_p4" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup_p4')">&times;</span>
-        <h1>Gestion de services</h1><br />
-        <ul>
-          <li><span>Description :</span> Traitement des demandes et suivi clients.</li>
-          <li><span>Technos :</span> HTML, CSS, JS, PHP, SQL, AJAX</li>
-          <li><span>Durée :</span> Août 2025 - en cours</li>
-        </ul>
-        <button class="btn" type="button" title="À venir">Démo</button>
-      </div>
-    </div>
-
-     <div id="popup_p5" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup_p5')">&times;</span>
-        <h1>Gestion de Resto campus</h1><br />
-        <ul>
-          <li><span>Description :</span> Permettre aux étudiants de réserver à l'avance leur plat, et de passer chercher à la pause sans faire la queu. Gesstion éfficace et rapide pour le gestionnaire de la cantine. </li>
-          <li><span>Technos :</span> HTML, CSS, JS, PHP, SQL, AJAX, modèle MVC</li>
-          <li><span>Durée :</span> Octobre 2025 - Decembre 2025</li>
-        </ul>
-        <button class="btn" type="button" title="À venir">Démo</button>
-      </div>
-    </div>
-
-    <div id="popup_p6" class="popup" style="display:none;">
-      <div class="popup-contenu">
-        <span class="btn-fermer" onclick="fermerPopup('popup_p6')">&times;</span>
-        <h1>Gestion de Club sportif (Wakeboard)</h1><br />
-        <ul>
-          <li><span>Description :</span> Plateforme permettant de gérer plusieurs équipes de joueur, d'organiser et de programmer des sessions ( compétions, entrainements, .. ). Accessible aux sportifs, Coah et Admin. </li>
-          <li><span>Technos :</span> HTML, CSS, JS, symfony, modèle MVC</li>
-          <li><span>Durée :</span> Octobre 2025 - Decembre 2025 (Binôme)</li>
-        </ul>
-        <button class="btn" type="button" title="À venir">Démo</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <h2 class="heading animate-me left">Contactez <span>moi</span></h2>
-
+  <div class="contact-form reveal">
     <form action="https://formsubmit.co/24e72a31dd09769434aad344406ee325" method="POST">
-      <input type="hidden" name="_template" value="box" />
-      <input type="hidden" name="_next" value="https://melaingb.github.io/Monportfolio/components/thanks.html" />
-      <input type="hidden" name="_blacklist" value="modèle de spam, terme interdit, expression" />
-
-      <div class="input-box">
-        <div class="input-block animate-me left">
-          <input type="text" name="name" placeholder="Nom" required />
-          <input type="email" name="email" placeholder="Email" required />
-        </div>
-
-        <div class="input-block animate-me left">
-          <input type="text" name="_subject" placeholder="Objet" required />
-        </div>
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_next" value="https://melaingb.github.io/Monportfolio/components/thanks.html">
+      <input type="hidden" name="_blacklist" value="modèle de spam, terme interdit, expression">
+      <div class="form-row">
+        <div class="form-field"><label class="form-label">Nom</label><input type="text" name="name" class="form-input" placeholder="Jean Dupont" required></div>
+        <div class="form-field"><label class="form-label">Email</label><input type="email" name="email" class="form-input" placeholder="jean@exemple.fr" required></div>
       </div>
-
-      <div class="input-block-2 animate-me right">
-        <textarea name="Message" cols="30" rows="10" placeholder="Votre Message" required></textarea>
-        <button class="btn" type="submit">Envoyer</button>
-      </div>
+      <div class="form-field"><label class="form-label">Objet</label><input type="text" name="_subject" class="form-input" placeholder="Proposition d'alternance…" required></div>
+      <div class="form-field"><label class="form-label">Message</label><textarea name="Message" class="form-textarea" placeholder="Votre message…" required></textarea></div>
+      <div class="form-submit"><button type="submit" class="btn btn-primary">Envoyer →</button></div>
     </form>
+  </div>
+</section>
 
-    <footer>
-      <div class="rsx dynamic-element">
-        <a href="https://www.linkedin.com/in/melain-gbaguidi-14b15a300" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-        <a href="https://github.com/MELAINGB" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <ion-icon name="logo-github"></ion-icon>
-        </a>
-        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-          <ion-icon name="logo-twitter"></ion-icon>
-        </a>
-      </div>
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║  FOOTER                                                  ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<footer>
+  <div class="ft-socials">
+    <a href="https://www.linkedin.com/in/melain-gbaguidi-14b15a300" target="_blank" rel="noopener" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+    <a href="https://github.com/MELAINGB" target="_blank" rel="noopener" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a>
+    <a href="https://x.com/" target="_blank" rel="noopener" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+  </div>
+  <p class="ft-copy">© 2025 Melain GBAGUIDI — Tous droits réservés.</p>
+  <nav class="ft-links">
+    <a href="#competences">Compétences</a>
+    <a href="#projet">Projets</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
 
-      <ul class="list">
-        <li><a href="#competences">Service</a></li>
-        <li><a href="components/about.html">A propos</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║  POPUPS — FORMATIONS                                     ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="popup-overlay" id="popup1"><div class="popup-box"><button class="popup-close" onclick="closePopup('popup1')"><ion-icon name="close"></ion-icon></button><h3>Campus Saint-Aspais</h3><ul><li><span>Formation</span>BTS SIO Option SLAM</li><li><span>Adresse</span><a href="https://maps.app.goo.gl/ZcVqesYBw3TMCQtK9" target="_blank">36 rue Saint-Barthélemy, 77000 Melun</a></li></ul></div></div>
 
-      <p class="copyright">
-        &copy; 2025 Melain GBAGUIDI | Tous droits réservés.
-      </p>
-    </footer>
-  </section>
+<div class="popup-overlay" id="popup2"><div class="popup-box"><button class="popup-close" onclick="closePopup('popup2')"><ion-icon name="close"></ion-icon></button><h3>Stage CITECH Sarl</h3><ul><li><span>Type</span>Stage / Formation en développement web</li><li><span>Compétences</span>Développement web + graphisme (Photoshop)</li><li><span>Réalisation</span>Application gestion de présence (PHP, SQL, HTML, CSS, JS)</li><li><span>Adresse</span><a href="https://maps.app.goo.gl/3qcNXiTnqhF2cj1e9" target="_blank">Abomey-Calavi, Bénin</a></li><li><span>Site</span><a href="https://citechsarl.com" target="_blank">citechsarl.com</a></li></ul></div></div>
 
-  <!-- étoiles (si tu veux en garder plusieurs, sinon on pourra les générer en JS) -->
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
+<div class="popup-overlay" id="popup3"><div class="popup-box"><button class="popup-close" onclick="closePopup('popup3')"><ion-icon name="close"></ion-icon></button><h3>HECM — Calavi</h3><ul><li><span>Formation</span>Licence informatique — SIL (1ère année)</li><li><span>Description</span>Formation de 3 ans en développement web et systèmes informatiques.</li><li><span>Adresse</span><a href="https://maps.app.goo.gl/kuKyUeSrc2TZNQQ17" target="_blank">Abomey-Calavi, Bénin</a></li><li><span>Site</span><a href="https://www.hecm-afrique.net/" target="_blank">hecm-afrique.net</a></li></ul></div></div>
 
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/mot.js"></script>
+<div class="popup-overlay" id="popup4"><div class="popup-box"><button class="popup-close" onclick="closePopup('popup4')"><ion-icon name="close"></ion-icon></button><h3>CS Phiromce</h3><ul><li><span>Diplôme</span>Baccalauréat Scientifique Série D — Mention Bien</li><li><span>Adresse</span><a href="https://maps.app.goo.gl/w2R2MUEV9zFN42P29" target="_blank">Abomey-Calavi, Bénin</a></li></ul></div></div>
 
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<div class="popup-overlay" id="popup5"><div class="popup-box"><button class="popup-close" onclick="closePopup('popup5')"><ion-icon name="close"></ion-icon></button><h3>Stage Weblib</h3><ul><li><span>Type</span>Stage 3 mois — Développement web</li><li><span>Compétences</span>Robot Framework, GitLab, CI/CD, Confluence, Linux</li><li><span>Réalisation</span>Automatisation de tests de connexion sur points d'accès</li><li><span>Rapport</span><a href="/assets/Fichiers/Melain_GBAGUIDI_rapport_de_stage_BTS1SIO_2025.pdf" target="_blank">Voir le rapport de stage</a></li><li><span>Adresse</span><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e67af0e1507b09:0xc80a8356b51709e3" target="_blank">16 Rue Auguste Vacquerie, Paris 75016</a></li></ul></div></div>
+
+<div class="popup-overlay" id="popup6"><div class="popup-box"><button class="popup-close" onclick="closePopup('popup6')"><ion-icon name="close"></ion-icon></button><h3>ELP Overture</h3><ul><li><span>Type</span>Stage 5 semaines — BTS 2ème année</li><li><span>Compétences</span>Angular & Symfony</li><li><span>Réalisation</span>Plateforme de commande de tôlerie en ligne + configurateur</li><li><span>Rapport</span><a href="/assets/Fichiers/Melain_GBAGUIDI_rapport_de_stage_BTSSIO2_2025.pdf" target="_blank">Voir le rapport de stage</a></li><li><span>Adresse</span>1 Rue Clément Ader, Saint-Pierre-du-Perray</li></ul></div></div>
+
+<!-- POPUPS PROJETS -->
+<div class="popup-overlay" id="pp1"><div class="popup-box"><button class="popup-close" onclick="closePopup('pp1')"><ion-icon name="close"></ion-icon></button><h3>Portfolio personnel</h3><ul><li><span>Description</span>Portfolio présentant parcours, compétences et services.</li><li><span>Technos</span>HTML, CSS, JavaScript</li><li><span>Durée</span>Octobre 2024 — en cours</li></ul></div></div>
+<div class="popup-overlay" id="pp2"><div class="popup-box"><button class="popup-close" onclick="closePopup('pp2')"><ion-icon name="close"></ion-icon></button><h3>Gestion de présences</h3><ul><li><span>Description</span>Suivi des présences via badge, automatisé.</li><li><span>Technos</span>HTML, CSS, JS, PHP, SQL</li><li><span>Durée</span>2 mois (en binôme)</li></ul></div></div>
+<div class="popup-overlay" id="pp3"><div class="popup-box"><button class="popup-close" onclick="closePopup('pp3')"><ion-icon name="close"></ion-icon></button><h3>Gestion de compte utilisateur</h3><ul><li><span>Description</span>Collecte de fonds à distance, historique de transactions et gestion de compte.</li><li><span>Technos</span>HTML, CSS, JS, PHP, SQL</li><li><span>Durée</span>Septembre 2024 — en cours</li></ul></div></div>
+<div class="popup-overlay" id="pp4"><div class="popup-box"><button class="popup-close" onclick="closePopup('pp4')"><ion-icon name="close"></ion-icon></button><h3>Gestion de services & demandes</h3><ul><li><span>Description</span>Traitement des demandes en temps réel, automatisation et suivi clients.</li><li><span>Technos</span>HTML, CSS, JS, PHP, SQL, AJAX</li><li><span>Durée</span>Août 2025 — en cours</li></ul></div></div>
+<div class="popup-overlay" id="pp5"><div class="popup-box"><button class="popup-close" onclick="closePopup('pp5')"><ion-icon name="close"></ion-icon></button><h3>Resto Campus</h3><ul><li><span>Description</span>Réservation des menus à l'avance pour éviter les files d'attente à la cantine. Gestion efficace et rapide pour le gestionnaire.</li><li><span>Technos</span>HTML, CSS, JS, PHP, SQL, AJAX, MVC</li><li><span>Durée</span>Octobre — Décembre 2025</li></ul></div></div>
+<div class="popup-overlay" id="pp6"><div class="popup-box"><button class="popup-close" onclick="closePopup('pp6')"><ion-icon name="close"></ion-icon></button><h3>Club Sportif Wakeboard</h3><ul><li><span>Description</span>Gestion d'équipes, organisation et programmation de sessions (compétitions, entraînements). Accessible aux sportifs, coaches et admins.</li><li><span>Technos</span>HTML, CSS, JS, Symfony, MVC</li><li><span>Durée</span>Octobre — Décembre 2025 (Binôme)</li></ul></div></div>
+
+<!-- FULLSCREEN IMAGE -->
+<div class="fs-overlay" id="fsOverlay">
+  <button class="fs-close" onclick="closeFS()"><ion-icon name="close"></ion-icon></button>
+  <img id="fsImg" src="" alt="">
+  <p id="fsCaption"></p>
+</div>
+
+<script>
+/* ─── CURSOR ────────────────────────────────────────────── */
+
+
+/* ─── STARS ─────────────────────────────────────────────── */
+const wrap = document.getElementById('starsWrap');
+for (let i = 0; i < 80; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() * 2 + .5;
+  s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--del:${Math.random()*4}s`;
+  wrap.appendChild(s);
+}
+
+/* ─── TYPED ─────────────────────────────────────────────── */
+const phrases = ['Développeur Web Full-Stack', 'Étudiant BTS SIO SLAM', 'Passionné de nouvelles technologies', 'Futur Chef de Projet IT'];
+let pi = 0, ci = 0, del = false;
+const typedEl = document.getElementById('typed');
+function type() {
+  const phrase = phrases[pi];
+  typedEl.textContent = del ? phrase.slice(0, ci--) : phrase.slice(0, ci++);
+  if (!del && ci > phrase.length) { del = true; setTimeout(type, 1200); return; }
+  if (del && ci < 0) { del = false; pi = (pi + 1) % phrases.length; ci = 0; }
+  setTimeout(type, del ? 40 : 80);
+}
+type();
+
+/* ─── REVEAL ─────────────────────────────────────────────── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      e.target.style.transitionDelay = (i * 0.06) + 's';
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ─── DARK MODE ─────────────────────────────────────────── */
+const darkBtn  = document.getElementById('dark-btn');
+const darkIcon = document.getElementById('dark-icon');
+let isDark = true; // site is dark by default
+function applyLight() {
+  document.documentElement.style.setProperty('--bg', '#f2f5f8');
+  document.documentElement.style.setProperty('--bg-2', '#e8ecf0');
+  document.documentElement.style.setProperty('--surface', '#ffffff');
+  document.documentElement.style.setProperty('--surface-2', '#f0f3f7');
+  document.documentElement.style.setProperty('--ink', '#0d1219');
+  document.documentElement.style.setProperty('--ink-2', '#3a4a5c');
+  document.documentElement.style.setProperty('--ink-3', '#7a8a9c');
+  document.documentElement.style.setProperty('--line', 'rgba(0,0,0,.08)');
+  document.documentElement.style.setProperty('--line-2', 'rgba(0,0,0,.04)');
+}
+function applyDark() {
+  document.documentElement.style.removeProperty('--bg');
+  document.documentElement.style.removeProperty('--bg-2');
+  document.documentElement.style.removeProperty('--surface');
+  document.documentElement.style.removeProperty('--surface-2');
+  document.documentElement.style.removeProperty('--ink');
+  document.documentElement.style.removeProperty('--ink-2');
+  document.documentElement.style.removeProperty('--ink-3');
+  document.documentElement.style.removeProperty('--line');
+  document.documentElement.style.removeProperty('--line-2');
+}
+if (localStorage.getItem('theme') === 'light') { isDark = false; applyLight(); darkIcon.setAttribute('name','moon-outline'); }
+darkBtn.addEventListener('click', () => {
+  isDark = !isDark;
+  if (isDark) { applyDark(); darkIcon.setAttribute('name','moon-outline'); localStorage.setItem('theme','dark'); }
+  else { applyLight(); darkIcon.setAttribute('name','sunny-outline'); localStorage.setItem('theme','light'); }
+});
+
+/* ─── BURGER ─────────────────────────────────────────────── */
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('mobile-open'));
+
+/* ─── CAROUSEL ──────────────────────────────────────────── */
+function initCarousel(trackId, prevId, nextId) {
+  const track = document.getElementById(trackId);
+  const itemW = 160 + 16; // width + gap
+  let pos = 0;
+  document.getElementById(nextId).addEventListener('click', () => {
+    const maxPos = track.scrollWidth - track.parentElement.offsetWidth;
+    pos = Math.min(pos + itemW * 3, maxPos);
+    track.style.transform = `translateX(-${pos}px)`;
+  });
+  document.getElementById(prevId).addEventListener('click', () => {
+    pos = Math.max(pos - itemW * 3, 0);
+    track.style.transform = `translateX(-${pos}px)`;
+  });
+}
+initCarousel('track1', 'prev1', 'next1');
+initCarousel('track2', 'prev2', 'next2');
+
+/* ─── ACCORDION ─────────────────────────────────────────── */
+document.querySelectorAll('.acc-head').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+/* ─── POPUPS ─────────────────────────────────────────────── */
+function openPopup(id) { document.getElementById(id).classList.add('open'); }
+function closePopup(id) { document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.popup-overlay').forEach(ov => {
+  ov.addEventListener('click', e => { if (e.target === ov) ov.classList.remove('open'); });
+});
+
+/* ─── FULLSCREEN IMAGE ───────────────────────────────────── */
+function openFS(src, caption) {
+  document.getElementById('fsImg').src = src;
+  document.getElementById('fsCaption').textContent = caption;
+  document.getElementById('fsOverlay').classList.add('open');
+}
+function closeFS() { document.getElementById('fsOverlay').classList.remove('open'); }
+
+/* ─── ACTIVE NAV ─────────────────────────────────────────── */
+const sections = document.querySelectorAll('section[id]');
+const navA = document.querySelectorAll('.nav-links a');
+new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navA.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' }).observe(document.querySelector('#home'));
+sections.forEach(s => new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navA.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' }).observe(s));
+</script>
 </body>
 </html>
